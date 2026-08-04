@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Steg 7. Token-baserad turfordelning med symmetrisk Dirichlet-viktning.",
+  "input_layout": "stage6_output/<sprak>/turn_<antal>/<formprofil>/RAW_*.json",
+  "output_layout": "stage7_output/valid_templates/<sprak>/turn_<antal>/<formprofil>/RAW_*.json",
+  "invalid_layout": "stage7_output/invalid_templates/<sprak>/turn_<antal>/<formprofil>/RAW_*.json",
+  "random_seed_namespace": "stage7_dirichlet_v1",
+  "always_active_variable_components": [
+    "P2",
+    "P4"
+  ],
+  "deviation_slot_to_component": {
+    "D_1": "D_slot_1",
+    "D_2": "D_slot_2"
+  },
+  "minimum_turn_floor_per_active_component": 1,
+  "alpha_by_turn_count": {
+    "6": 0.7,
+    "8": 0.77,
+    "9": 0.8,
+    "10": 0.85,
+    "12": 0.93,
+    "14": 1.02,
+    "18": 1.19,
+    "25": 1.5
+  }
+}

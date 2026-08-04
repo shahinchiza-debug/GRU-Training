@@ -1,0 +1,33 @@
+{
+  "generated_at_utc": "2026-07-07T08:56:02.513217+00:00",
+  "input_directory": "C:\\Users\\shahi\\Documents\\Training mall\\stage5_output",
+  "config_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage6_form_distribution.json",
+  "output_directory": "C:\\Users\\shahi\\Documents\\Training mall\\stage6_output",
+  "processed_template_count": 10240,
+  "distribution_scope": "within_each_language_turn_bucket",
+  "totals_by_deviation_group": {
+    "del_1_0d": 160,
+    "del_2_1d": 1920,
+    "del_3_2d": 8160
+  },
+  "totals_by_form_profile": {
+    "A1": 5120,
+    "A2": 5120
+  },
+  "totals_by_language": {
+    "brytande_svenska": 2048,
+    "formell_fin_svenska": 1024,
+    "orten_svenska": 3072,
+    "vardaglig_svenska": 4096
+  },
+  "totals_by_turn": {
+    "6": 128,
+    "8": 282,
+    "9": 563,
+    "10": 904,
+    "12": 2589,
+    "14": 3510,
+    "18": 1336,
+    "25": 928
+  }
+}

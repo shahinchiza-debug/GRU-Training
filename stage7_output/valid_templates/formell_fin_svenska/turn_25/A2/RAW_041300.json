@@ -1,0 +1,125 @@
+{
+  "template_id": "RAW_041300",
+  "P1": {
+    "state": "P1.4",
+    "desc": "Kunden öppnar med intent direkt."
+  },
+  "P2": {
+    "state": "P2.3",
+    "desc": "Nytt ärende introduceras under P2."
+  },
+  "P3": {
+    "state": "P3.2",
+    "desc": "Kunden ger bara del av kontaktinformationen."
+  },
+  "P4": {
+    "state": "P4.3",
+    "desc": "Flera parametrar är fel eller flera korrigeringsvarv uppstår."
+  },
+  "P5": {
+    "state": "P5.2",
+    "desc": "Kundinitierat avslut."
+  },
+  "D_1": {
+    "state": "D3@P3",
+    "desc": "Tillägg i P3."
+  },
+  "D_2": {
+    "state": null,
+    "desc": "Ingen avvikelse"
+  },
+  "_validation": {
+    "valid": true,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [],
+    "reasons": [],
+    "derived": {
+      "deviation_count": 1,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D3@P3",
+          "type": "D3",
+          "phase": "P3"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D3@P3"
+      ]
+    }
+  },
+  "stage4": {
+    "deviation_group": "del_2_1d",
+    "deviation_group_label": "1D",
+    "turn_count": 25
+  },
+  "stage5": {
+    "turn_count": 25,
+    "language_bucket": "formell_fin_svenska",
+    "language_label": "Formell/fin svenska"
+  },
+  "stage6": {
+    "form_profile": "A2",
+    "form_profile_label": "A2",
+    "form_profile_description": "Kort P1 och langre P3.",
+    "fixed_phase_turns": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1
+    },
+    "fixed_turn_total": 4,
+    "remaining_turn_budget": 21,
+    "variable_components": [
+      "P2",
+      "P4"
+    ],
+    "distribution_placeholders": {
+      "P2": "X%",
+      "P4": "Y%"
+    },
+    "sum_rule": "I 1D beskriver P-faserna fortfarande grundformen i detta steg."
+  },
+  "stage7": {
+    "valid": true,
+    "total_turn_budget": 25,
+    "locked_phase_turns": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1
+    },
+    "locked_turn_total": 4,
+    "remaining_turn_budget": 21,
+    "active_variable_components": [
+      "P2",
+      "P4",
+      "D_slot_1"
+    ],
+    "minimum_turn_floor_per_active_component": 1,
+    "minimum_required_variable_turns": 3,
+    "extra_token_budget": 18,
+    "alpha_value": 1.5,
+    "alpha_vector": [
+      1.5,
+      1.5,
+      1.5
+    ],
+    "dirichlet_weights": {
+      "P2": 0.08207735876443142,
+      "P4": 0.31278582582307857,
+      "D_slot_1": 0.60513681541249
+    },
+    "variable_turn_allocations": {
+      "P2": 4,
+      "P4": 5,
+      "D_slot_1": 12
+    },
+    "final_turn_allocations": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1,
+      "P2": 4,
+      "P4": 5,
+      "D_slot_1": 12
+    }
+  }
+}

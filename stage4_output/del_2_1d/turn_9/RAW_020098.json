@@ -1,0 +1,56 @@
+{
+  "template_id": "RAW_020098",
+  "P1": {
+    "state": "P1.2",
+    "desc": "AI öppnar, kunden ger intent direkt."
+  },
+  "P2": {
+    "state": "P2.4",
+    "desc": "AI initierar utökning av ärendet."
+  },
+  "P3": {
+    "state": "P3.1",
+    "desc": "Kunden ger all kontaktinformation utan problem."
+  },
+  "P4": {
+    "state": "P4.2",
+    "desc": "En parameter är fel."
+  },
+  "P5": {
+    "state": "P5.1",
+    "desc": "Standardavslut."
+  },
+  "D_1": {
+    "state": "D1@P1",
+    "desc": "Informationsfråga i P1."
+  },
+  "D_2": {
+    "state": null,
+    "desc": "Ingen avvikelse"
+  },
+  "_validation": {
+    "valid": true,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [],
+    "reasons": [],
+    "derived": {
+      "deviation_count": 1,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D1@P1",
+          "type": "D1",
+          "phase": "P1"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D1@P1"
+      ]
+    }
+  },
+  "stage4": {
+    "deviation_group": "del_2_1d",
+    "deviation_group_label": "1D",
+    "turn_count": 9
+  }
+}

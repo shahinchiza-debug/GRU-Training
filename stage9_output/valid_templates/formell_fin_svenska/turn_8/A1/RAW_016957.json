@@ -1,0 +1,268 @@
+{
+  "template_id": "RAW_016957",
+  "P1": {
+    "state": "P1.2",
+    "desc": "AI öppnar, kunden ger intent direkt.",
+    "intent_count": 0
+  },
+  "P2": {
+    "state": "P2.3",
+    "desc": "Nytt ärende introduceras under P2.",
+    "intent_count": 3
+  },
+  "P3": {
+    "state": "P3.1",
+    "desc": "Kunden ger all kontaktinformation utan problem.",
+    "intent_count": 0
+  },
+  "P4": {
+    "state": "P4.1",
+    "desc": "Ingen korrigering.",
+    "intent_count": 0
+  },
+  "P5": {
+    "state": "P5.1",
+    "desc": "Standardavslut.",
+    "intent_count": 0
+  },
+  "D_1": {
+    "state": null,
+    "desc": "Ingen avvikelse",
+    "intent_count": 0
+  },
+  "D_2": {
+    "state": null,
+    "desc": "Ingen avvikelse",
+    "intent_count": 0
+  },
+  "_validation": {
+    "valid": true,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [],
+    "reasons": [],
+    "derived": {
+      "deviation_count": 0,
+      "active_deviations": [],
+      "normalized_deviation_signature": []
+    }
+  },
+  "stage4": {
+    "deviation_group": "del_1_0d",
+    "deviation_group_label": "0D",
+    "turn_count": 8
+  },
+  "stage5": {
+    "turn_count": 8,
+    "language_bucket": "formell_fin_svenska",
+    "language_label": "Formell/fin svenska"
+  },
+  "stage6": {
+    "form_profile": "A1",
+    "form_profile_label": "A1",
+    "form_profile_description": "Kort P1 och kort P3.",
+    "fixed_phase_turns": {
+      "P1": 1,
+      "P3": 1,
+      "P5": 1
+    },
+    "fixed_turn_total": 3,
+    "remaining_turn_budget": 5,
+    "variable_components": [
+      "P2",
+      "P4"
+    ],
+    "distribution_placeholders": {
+      "P2": "X%",
+      "P4": "Y%"
+    },
+    "sum_rule": "P1, P2, P3, P4 och P5 beskriver tillsammans samtalets form."
+  },
+  "stage7": {
+    "valid": true,
+    "total_turn_budget": 8,
+    "locked_phase_turns": {
+      "P1": 1,
+      "P3": 1,
+      "P5": 1
+    },
+    "locked_turn_total": 3,
+    "remaining_turn_budget": 5,
+    "active_variable_components": [
+      "P2",
+      "P4"
+    ],
+    "minimum_turn_floor_per_active_component": 1,
+    "minimum_required_variable_turns": 2,
+    "extra_token_budget": 3,
+    "alpha_value": 0.77,
+    "alpha_vector": [
+      0.77,
+      0.77
+    ],
+    "dirichlet_weights": {
+      "P2": 0.6647043771057602,
+      "P4": 0.3352956228942398
+    },
+    "variable_turn_allocations": {
+      "P2": 4,
+      "P4": 1
+    },
+    "final_turn_allocations": {
+      "P1": 1,
+      "P3": 1,
+      "P5": 1,
+      "P2": 4,
+      "P4": 1
+    }
+  },
+  "stage8": {
+    "valid": true,
+    "assignments": {
+      "P1": {
+        "component_type": "phase",
+        "state": "P1.2",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "P2": {
+        "component_type": "phase",
+        "state": "P2.3",
+        "turn_count": 4,
+        "intent_allowed": true,
+        "skip_turn_count_cap": true,
+        "min_intents": 1,
+        "max_intents": 4,
+        "rule_mode": "skip_turn_count_cap",
+        "effective_max": 4,
+        "intent_count": 3
+      },
+      "P3": {
+        "component_type": "phase",
+        "state": "P3.1",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "P4": {
+        "component_type": "phase",
+        "state": "P4.1",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "P5": {
+        "component_type": "phase",
+        "state": "P5.1",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "D_1": {
+        "component_type": "deviation",
+        "state": null,
+        "deviation_type": null,
+        "turn_count": 0,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "D_2": {
+        "component_type": "deviation",
+        "state": null,
+        "deviation_type": null,
+        "turn_count": 0,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      }
+    },
+    "total_intent_count": 3
+  },
+  "stage9": {
+    "valid": true,
+    "customer": {
+      "first_name": "Amal",
+      "phone": "0722869036"
+    },
+    "booking_context": {
+      "day": "tisdag",
+      "time_preference": {
+        "kind": "relative_time",
+        "value": "idag"
+      }
+    },
+    "selected_services": [
+      "herrklippning",
+      "fade",
+      "studentklippning"
+    ],
+    "rule_snapshot": {
+      "service_sampling_mode": "without_replacement",
+      "allow_duplicate_service_within_template": false
+    },
+    "component_payloads": {
+      "P2": {
+        "intent_count": 3,
+        "intents": [
+          {
+            "intent_id": "P2_INT_01",
+            "intent_type": "booking",
+            "service": "herrklippning",
+            "day": "tisdag",
+            "time_preference": {
+              "kind": "relative_time",
+              "value": "idag"
+            }
+          },
+          {
+            "intent_id": "P2_INT_02",
+            "intent_type": "booking",
+            "service": "fade",
+            "day": "tisdag",
+            "time_preference": {
+              "kind": "relative_time",
+              "value": "idag"
+            }
+          },
+          {
+            "intent_id": "P2_INT_03",
+            "intent_type": "booking",
+            "service": "studentklippning",
+            "day": "tisdag",
+            "time_preference": {
+              "kind": "relative_time",
+              "value": "idag"
+            }
+          }
+        ]
+      },
+      "P4": {
+        "intent_count": 0,
+        "corrections": []
+      }
+    }
+  }
+}

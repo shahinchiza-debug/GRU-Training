@@ -1,0 +1,62 @@
+{
+  "template_id": "RAW_013005",
+  "P1": {
+    "state": "P1.2",
+    "desc": "AI öppnar, kunden ger intent direkt."
+  },
+  "P2": {
+    "state": "P2.1",
+    "desc": "Enskilt ärende."
+  },
+  "P3": {
+    "state": "P3.2",
+    "desc": "Kunden ger bara del av kontaktinformationen."
+  },
+  "P4": {
+    "state": "P4.3",
+    "desc": "Flera parametrar är fel eller flera korrigeringsvarv uppstår."
+  },
+  "P5": {
+    "state": "P5.1",
+    "desc": "Standardavslut."
+  },
+  "D_1": {
+    "state": "D3@P5",
+    "desc": "Tillägg i P5."
+  },
+  "D_2": {
+    "state": "D3@P5",
+    "desc": "Tillägg i P5."
+  },
+  "_validation": {
+    "valid": false,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [
+      "DOUBLE_DEVIATION_SAME_TYPE_NOT_ALLOWED"
+    ],
+    "reasons": [
+      "TvÃ¥ deviations med samma typ Ã¤r inte tillÃ¥tna enligt stage2_rules."
+    ],
+    "derived": {
+      "deviation_count": 2,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D3@P5",
+          "type": "D3",
+          "phase": "P5"
+        },
+        {
+          "slot": "D_2",
+          "state": "D3@P5",
+          "type": "D3",
+          "phase": "P5"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D3@P5",
+        "D3@P5"
+      ]
+    }
+  }
+}

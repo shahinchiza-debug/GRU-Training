@@ -1,0 +1,31 @@
+{
+  "template_id": "RAW_022820",
+  "P1": {
+    "state": "P1.3",
+    "desc": "Kunden öppnar enkelt, utan intent."
+  },
+  "P2": {
+    "state": "P2.1",
+    "desc": "Enskilt ärende."
+  },
+  "P3": {
+    "state": "P3.1",
+    "desc": "Kunden ger all kontaktinformation utan problem."
+  },
+  "P4": {
+    "state": "P4.1",
+    "desc": "Ingen korrigering."
+  },
+  "P5": {
+    "state": "P5.2",
+    "desc": "Kundinitierat avslut."
+  },
+  "D_1": {
+    "state": "D1@P4",
+    "desc": "Informationsfråga i P4."
+  },
+  "D_2": {
+    "state": "D2@P3",
+    "desc": "Enskild korrigering i P3."
+  }
+}

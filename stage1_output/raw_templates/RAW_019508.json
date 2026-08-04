@@ -1,0 +1,31 @@
+{
+  "template_id": "RAW_019508",
+  "P1": {
+    "state": "P1.2",
+    "desc": "AI öppnar, kunden ger intent direkt."
+  },
+  "P2": {
+    "state": "P2.3",
+    "desc": "Nytt ärende introduceras under P2."
+  },
+  "P3": {
+    "state": "P3.3",
+    "desc": "Kunden är oklar eller tveksam kring kontaktinformationen."
+  },
+  "P4": {
+    "state": "P4.3",
+    "desc": "Flera parametrar är fel eller flera korrigeringsvarv uppstår."
+  },
+  "P5": {
+    "state": "P5.1",
+    "desc": "Standardavslut."
+  },
+  "D_1": {
+    "state": "D1@P3",
+    "desc": "Informationsfråga i P3."
+  },
+  "D_2": {
+    "state": "D1@P3",
+    "desc": "Informationsfråga i P3."
+  }
+}

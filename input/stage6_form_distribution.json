@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Steg 6. Fordelar mallar pa A1-A2-formprofiler enligt uppdaterad tabell 2. A-profilerna beskriver konversationens form, inte slutlig text.",
+  "distribution_scope": "within_each_language_turn_bucket",
+  "output_layout": "language/turn/form_profile",
+  "form_profile_order": ["A1", "A2"],
+  "form_profile_weights": {
+    "A1": 50,
+    "A2": 50
+  },
+  "deviation_group_order": ["del_1_0d", "del_2_1d", "del_3_2d"],
+  "form_profiles": {
+    "A1": {
+      "label": "A1",
+      "description": "Kort P1 och kort P3.",
+      "fixed_phase_turns": {
+        "P1": 1,
+        "P3": 1,
+        "P5": 1
+      }
+    },
+    "A2": {
+      "label": "A2",
+      "description": "Kort P1 och langre P3.",
+      "fixed_phase_turns": {
+        "P1": 1,
+        "P3": 2,
+        "P5": 1
+      }
+    }
+  },
+  "deviation_groups": {
+    "del_1_0d": {
+      "label": "0D",
+      "variable_components": ["P2", "P4"],
+      "distribution_placeholders": {
+        "P2": "X%",
+        "P4": "Y%"
+      },
+      "sum_rule": "P1, P2, P3, P4 och P5 beskriver tillsammans samtalets form."
+    },
+    "del_2_1d": {
+      "label": "1D",
+      "variable_components": ["P2", "P4"],
+      "distribution_placeholders": {
+        "P2": "X%",
+        "P4": "Y%"
+      },
+      "sum_rule": "I 1D beskriver P-faserna fortfarande grundformen i detta steg."
+    },
+    "del_3_2d": {
+      "label": "2D",
+      "variable_components": ["P2", "P4", "D_slot_1", "D_slot_2"],
+      "distribution_placeholders": {
+        "P2": "X%",
+        "P4": "Y%",
+        "D_slot_1": "Z%",
+        "D_slot_2": "W%"
+      },
+      "sum_rule": "P-faserna beskriver grundformen och D-slot 1-2 laggs ovanpa som variabla avvikelsedelar."
+    }
+  }
+}

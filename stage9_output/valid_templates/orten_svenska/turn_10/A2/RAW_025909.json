@@ -1,0 +1,273 @@
+{
+  "template_id": "RAW_025909",
+  "P1": {
+    "state": "P1.3",
+    "desc": "Kunden öppnar enkelt, utan intent.",
+    "intent_count": 0
+  },
+  "P2": {
+    "state": "P2.2",
+    "desc": "Flera ärenden uttrycks direkt.",
+    "intent_count": 1
+  },
+  "P3": {
+    "state": "P3.1",
+    "desc": "Kunden ger all kontaktinformation utan problem.",
+    "intent_count": 0
+  },
+  "P4": {
+    "state": "P4.2",
+    "desc": "En parameter är fel.",
+    "intent_count": 1
+  },
+  "P5": {
+    "state": "P5.2",
+    "desc": "Kundinitierat avslut.",
+    "intent_count": 0
+  },
+  "D_1": {
+    "state": "D1@P3",
+    "desc": "Informationsfråga i P3.",
+    "intent_count": 0
+  },
+  "D_2": {
+    "state": null,
+    "desc": "Ingen avvikelse",
+    "intent_count": 0
+  },
+  "_validation": {
+    "valid": true,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [],
+    "reasons": [],
+    "derived": {
+      "deviation_count": 1,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D1@P3",
+          "type": "D1",
+          "phase": "P3"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D1@P3"
+      ]
+    }
+  },
+  "stage4": {
+    "deviation_group": "del_2_1d",
+    "deviation_group_label": "1D",
+    "turn_count": 10
+  },
+  "stage5": {
+    "turn_count": 10,
+    "language_bucket": "orten_svenska",
+    "language_label": "Orten svenska"
+  },
+  "stage6": {
+    "form_profile": "A2",
+    "form_profile_label": "A2",
+    "form_profile_description": "Kort P1 och langre P3.",
+    "fixed_phase_turns": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1
+    },
+    "fixed_turn_total": 4,
+    "remaining_turn_budget": 6,
+    "variable_components": [
+      "P2",
+      "P4"
+    ],
+    "distribution_placeholders": {
+      "P2": "X%",
+      "P4": "Y%"
+    },
+    "sum_rule": "I 1D beskriver P-faserna fortfarande grundformen i detta steg."
+  },
+  "stage7": {
+    "valid": true,
+    "total_turn_budget": 10,
+    "locked_phase_turns": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1
+    },
+    "locked_turn_total": 4,
+    "remaining_turn_budget": 6,
+    "active_variable_components": [
+      "P2",
+      "P4",
+      "D_slot_1"
+    ],
+    "minimum_turn_floor_per_active_component": 1,
+    "minimum_required_variable_turns": 3,
+    "extra_token_budget": 3,
+    "alpha_value": 0.85,
+    "alpha_vector": [
+      0.85,
+      0.85,
+      0.85
+    ],
+    "dirichlet_weights": {
+      "P2": 0.22120269278006424,
+      "P4": 0.06470653911507201,
+      "D_slot_1": 0.7140907681048637
+    },
+    "variable_turn_allocations": {
+      "P2": 1,
+      "P4": 2,
+      "D_slot_1": 3
+    },
+    "final_turn_allocations": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1,
+      "P2": 1,
+      "P4": 2,
+      "D_slot_1": 3
+    }
+  },
+  "stage8": {
+    "valid": true,
+    "assignments": {
+      "P1": {
+        "component_type": "phase",
+        "state": "P1.3",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "P2": {
+        "component_type": "phase",
+        "state": "P2.2",
+        "turn_count": 1,
+        "intent_allowed": true,
+        "skip_turn_count_cap": true,
+        "min_intents": 1,
+        "max_intents": 4,
+        "rule_mode": "skip_turn_count_cap",
+        "effective_max": 4,
+        "intent_count": 1
+      },
+      "P3": {
+        "component_type": "phase",
+        "state": "P3.1",
+        "turn_count": 2,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "P4": {
+        "component_type": "phase",
+        "state": "P4.2",
+        "turn_count": 2,
+        "intent_allowed": true,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "rule_mode": "use_turn_count_cap",
+        "effective_max": 2,
+        "intent_count": 1
+      },
+      "P5": {
+        "component_type": "phase",
+        "state": "P5.2",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "D_1": {
+        "component_type": "deviation",
+        "state": "D1@P3",
+        "deviation_type": "D1",
+        "turn_count": 3,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "D_2": {
+        "component_type": "deviation",
+        "state": null,
+        "deviation_type": null,
+        "turn_count": 0,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      }
+    },
+    "total_intent_count": 2
+  },
+  "stage9": {
+    "valid": true,
+    "customer": {
+      "first_name": "Mahira",
+      "phone": "0709366285"
+    },
+    "booking_context": {
+      "day": "tisdag",
+      "time_preference": {
+        "kind": "exact_time",
+        "value": "16:00"
+      }
+    },
+    "selected_services": [
+      "fade"
+    ],
+    "rule_snapshot": {
+      "service_sampling_mode": "without_replacement",
+      "allow_duplicate_service_within_template": false
+    },
+    "component_payloads": {
+      "P2": {
+        "intent_count": 1,
+        "intents": [
+          {
+            "intent_id": "P2_INT_01",
+            "intent_type": "booking",
+            "service": "fade",
+            "day": "tisdag",
+            "time_preference": {
+              "kind": "exact_time",
+              "value": "16:00"
+            }
+          }
+        ]
+      },
+      "P4": {
+        "intent_count": 1,
+        "corrections": [
+          {
+            "correction_id": "P4_COR_01",
+            "target": "day",
+            "value": "lördag"
+          }
+        ]
+      },
+      "D_1": {
+        "deviation_type": "D1",
+        "host_phase": "P3",
+        "reference_service": "fade",
+        "question_type": "service_info"
+      }
+    }
+  }
+}

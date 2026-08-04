@@ -1,0 +1,31 @@
+{
+  "template_id": "RAW_031727",
+  "P1": {
+    "state": "P1.3",
+    "desc": "Kunden öppnar enkelt, utan intent."
+  },
+  "P2": {
+    "state": "P2.4",
+    "desc": "AI initierar utökning av ärendet."
+  },
+  "P3": {
+    "state": "P3.1",
+    "desc": "Kunden ger all kontaktinformation utan problem."
+  },
+  "P4": {
+    "state": "P4.3",
+    "desc": "Flera parametrar är fel eller flera korrigeringsvarv uppstår."
+  },
+  "P5": {
+    "state": "P5.1",
+    "desc": "Standardavslut."
+  },
+  "D_1": {
+    "state": "D4@P5",
+    "desc": "Flera korrigeringar i P5."
+  },
+  "D_2": {
+    "state": null,
+    "desc": "Ingen avvikelse"
+  }
+}

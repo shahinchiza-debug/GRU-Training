@@ -1,0 +1,93 @@
+{
+  "template_id": "RAW_013549",
+  "P1": {
+    "state": "P1.2",
+    "desc": "AI öppnar, kunden ger intent direkt."
+  },
+  "P2": {
+    "state": "P2.1",
+    "desc": "Enskilt ärende."
+  },
+  "P3": {
+    "state": "P3.3",
+    "desc": "Kunden är oklar eller tveksam kring kontaktinformationen."
+  },
+  "P4": {
+    "state": "P4.2",
+    "desc": "En parameter är fel."
+  },
+  "P5": {
+    "state": "P5.1",
+    "desc": "Standardavslut."
+  },
+  "D_1": {
+    "state": "D1@P3",
+    "desc": "Informationsfråga i P3."
+  },
+  "D_2": {
+    "state": "D3@P5",
+    "desc": "Tillägg i P5."
+  },
+  "_validation": {
+    "valid": true,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [],
+    "reasons": [],
+    "derived": {
+      "deviation_count": 2,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D1@P3",
+          "type": "D1",
+          "phase": "P3"
+        },
+        {
+          "slot": "D_2",
+          "state": "D3@P5",
+          "type": "D3",
+          "phase": "P5"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D1@P3",
+        "D3@P5"
+      ]
+    }
+  },
+  "stage4": {
+    "deviation_group": "del_3_2d",
+    "deviation_group_label": "2D",
+    "turn_count": 12
+  },
+  "stage5": {
+    "turn_count": 12,
+    "language_bucket": "orten_svenska",
+    "language_label": "Orten svenska"
+  },
+  "stage6": {
+    "form_profile": "A1",
+    "form_profile_label": "A1",
+    "form_profile_description": "Kort P1 och kort P3.",
+    "fixed_phase_turns": {
+      "P1": 1,
+      "P3": 1,
+      "P5": 1
+    },
+    "fixed_turn_total": 3,
+    "remaining_turn_budget": 9,
+    "variable_components": [
+      "P2",
+      "P4",
+      "D_slot_1",
+      "D_slot_2"
+    ],
+    "distribution_placeholders": {
+      "P2": "X%",
+      "P4": "Y%",
+      "D_slot_1": "Z%",
+      "D_slot_2": "W%"
+    },
+    "sum_rule": "P-faserna beskriver grundformen och D-slot 1-2 laggs ovanpa som variabla avvikelsedelar."
+  }
+}

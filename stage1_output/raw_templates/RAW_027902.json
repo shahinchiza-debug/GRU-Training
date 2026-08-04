@@ -1,0 +1,31 @@
+{
+  "template_id": "RAW_027902",
+  "P1": {
+    "state": "P1.3",
+    "desc": "Kunden öppnar enkelt, utan intent."
+  },
+  "P2": {
+    "state": "P2.2",
+    "desc": "Flera ärenden uttrycks direkt."
+  },
+  "P3": {
+    "state": "P3.3",
+    "desc": "Kunden är oklar eller tveksam kring kontaktinformationen."
+  },
+  "P4": {
+    "state": "P4.2",
+    "desc": "En parameter är fel."
+  },
+  "P5": {
+    "state": "P5.2",
+    "desc": "Kundinitierat avslut."
+  },
+  "D_1": {
+    "state": "D3@P4",
+    "desc": "Tillägg i P4."
+  },
+  "D_2": {
+    "state": "D1@P4",
+    "desc": "Informationsfråga i P4."
+  }
+}

@@ -1,0 +1,322 @@
+{
+  "template_id": "RAW_027675",
+  "P1": {
+    "state": "P1.3",
+    "desc": "Kunden öppnar enkelt, utan intent.",
+    "intent_count": 0
+  },
+  "P2": {
+    "state": "P2.2",
+    "desc": "Flera ärenden uttrycks direkt.",
+    "intent_count": 3
+  },
+  "P3": {
+    "state": "P3.3",
+    "desc": "Kunden är oklar eller tveksam kring kontaktinformationen.",
+    "intent_count": 0
+  },
+  "P4": {
+    "state": "P4.2",
+    "desc": "En parameter är fel.",
+    "intent_count": 1
+  },
+  "P5": {
+    "state": "P5.1",
+    "desc": "Standardavslut.",
+    "intent_count": 0
+  },
+  "D_1": {
+    "state": "D1@P3",
+    "desc": "Informationsfråga i P3.",
+    "intent_count": 0
+  },
+  "D_2": {
+    "state": "D2@P3",
+    "desc": "Enskild korrigering i P3.",
+    "intent_count": 0
+  },
+  "_validation": {
+    "valid": true,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [],
+    "reasons": [],
+    "derived": {
+      "deviation_count": 2,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D1@P3",
+          "type": "D1",
+          "phase": "P3"
+        },
+        {
+          "slot": "D_2",
+          "state": "D2@P3",
+          "type": "D2",
+          "phase": "P3"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D1@P3",
+        "D2@P3"
+      ]
+    }
+  },
+  "stage4": {
+    "deviation_group": "del_3_2d",
+    "deviation_group_label": "2D",
+    "turn_count": 14
+  },
+  "stage5": {
+    "turn_count": 14,
+    "language_bucket": "vardaglig_svenska",
+    "language_label": "Vardaglig svenska"
+  },
+  "stage6": {
+    "form_profile": "A1",
+    "form_profile_label": "A1",
+    "form_profile_description": "Kort P1 och kort P3.",
+    "fixed_phase_turns": {
+      "P1": 1,
+      "P3": 1,
+      "P5": 1
+    },
+    "fixed_turn_total": 3,
+    "remaining_turn_budget": 11,
+    "variable_components": [
+      "P2",
+      "P4",
+      "D_slot_1",
+      "D_slot_2"
+    ],
+    "distribution_placeholders": {
+      "P2": "X%",
+      "P4": "Y%",
+      "D_slot_1": "Z%",
+      "D_slot_2": "W%"
+    },
+    "sum_rule": "P-faserna beskriver grundformen och D-slot 1-2 laggs ovanpa som variabla avvikelsedelar."
+  },
+  "stage7": {
+    "valid": true,
+    "total_turn_budget": 14,
+    "locked_phase_turns": {
+      "P1": 1,
+      "P3": 1,
+      "P5": 1
+    },
+    "locked_turn_total": 3,
+    "remaining_turn_budget": 11,
+    "active_variable_components": [
+      "P2",
+      "P4",
+      "D_slot_1",
+      "D_slot_2"
+    ],
+    "minimum_turn_floor_per_active_component": 1,
+    "minimum_required_variable_turns": 4,
+    "extra_token_budget": 7,
+    "alpha_value": 1.02,
+    "alpha_vector": [
+      1.02,
+      1.02,
+      1.02,
+      1.02
+    ],
+    "dirichlet_weights": {
+      "P2": 0.07972616461580323,
+      "P4": 0.8566038220847721,
+      "D_slot_1": 0.04552231680000167,
+      "D_slot_2": 0.018147696499422772
+    },
+    "variable_turn_allocations": {
+      "P2": 1,
+      "P4": 8,
+      "D_slot_1": 1,
+      "D_slot_2": 1
+    },
+    "final_turn_allocations": {
+      "P1": 1,
+      "P3": 1,
+      "P5": 1,
+      "P2": 1,
+      "P4": 8,
+      "D_slot_1": 1,
+      "D_slot_2": 1
+    }
+  },
+  "stage8": {
+    "valid": true,
+    "assignments": {
+      "P1": {
+        "component_type": "phase",
+        "state": "P1.3",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "P2": {
+        "component_type": "phase",
+        "state": "P2.2",
+        "turn_count": 1,
+        "intent_allowed": true,
+        "skip_turn_count_cap": true,
+        "min_intents": 1,
+        "max_intents": 4,
+        "rule_mode": "skip_turn_count_cap",
+        "effective_max": 4,
+        "intent_count": 3
+      },
+      "P3": {
+        "component_type": "phase",
+        "state": "P3.3",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "P4": {
+        "component_type": "phase",
+        "state": "P4.2",
+        "turn_count": 8,
+        "intent_allowed": true,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "rule_mode": "use_turn_count_cap",
+        "effective_max": 4,
+        "intent_count": 1
+      },
+      "P5": {
+        "component_type": "phase",
+        "state": "P5.1",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "D_1": {
+        "component_type": "deviation",
+        "state": "D1@P3",
+        "deviation_type": "D1",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "D_2": {
+        "component_type": "deviation",
+        "state": "D2@P3",
+        "deviation_type": "D2",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      }
+    },
+    "total_intent_count": 4
+  },
+  "stage9": {
+    "valid": true,
+    "customer": {
+      "first_name": "Ida",
+      "phone": "0729141741"
+    },
+    "booking_context": {
+      "day": "fredag",
+      "time_preference": {
+        "kind": "exact_time",
+        "value": "17:30"
+      }
+    },
+    "selected_services": [
+      "tvätt",
+      "studentklippning",
+      "ögonbryn"
+    ],
+    "rule_snapshot": {
+      "service_sampling_mode": "without_replacement",
+      "allow_duplicate_service_within_template": false
+    },
+    "component_payloads": {
+      "P2": {
+        "intent_count": 3,
+        "intents": [
+          {
+            "intent_id": "P2_INT_01",
+            "intent_type": "booking",
+            "service": "tvätt",
+            "day": "fredag",
+            "time_preference": {
+              "kind": "exact_time",
+              "value": "17:30"
+            }
+          },
+          {
+            "intent_id": "P2_INT_02",
+            "intent_type": "booking",
+            "service": "studentklippning",
+            "day": "fredag",
+            "time_preference": {
+              "kind": "exact_time",
+              "value": "17:30"
+            }
+          },
+          {
+            "intent_id": "P2_INT_03",
+            "intent_type": "booking",
+            "service": "ögonbryn",
+            "day": "fredag",
+            "time_preference": {
+              "kind": "exact_time",
+              "value": "17:30"
+            }
+          }
+        ]
+      },
+      "P4": {
+        "intent_count": 1,
+        "corrections": [
+          {
+            "correction_id": "P4_COR_01",
+            "target": "day",
+            "value": "onsdag"
+          }
+        ]
+      },
+      "D_1": {
+        "deviation_type": "D1",
+        "host_phase": "P3",
+        "reference_service": "tvätt",
+        "question_type": "service_info"
+      },
+      "D_2": {
+        "deviation_type": "D2",
+        "host_phase": "P3",
+        "corrections": [
+          {
+            "correction_id": "D2_COR_01",
+            "target": "day",
+            "value": "torsdag"
+          }
+        ]
+      }
+    }
+  }
+}

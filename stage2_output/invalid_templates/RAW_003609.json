@@ -1,0 +1,62 @@
+{
+  "template_id": "RAW_003609",
+  "P1": {
+    "state": "P1.1",
+    "desc": "AI öppnar, kunden ger inte intent direkt."
+  },
+  "P2": {
+    "state": "P2.2",
+    "desc": "Flera ärenden uttrycks direkt."
+  },
+  "P3": {
+    "state": "P3.1",
+    "desc": "Kunden ger all kontaktinformation utan problem."
+  },
+  "P4": {
+    "state": "P4.3",
+    "desc": "Flera parametrar är fel eller flera korrigeringsvarv uppstår."
+  },
+  "P5": {
+    "state": "P5.1",
+    "desc": "Standardavslut."
+  },
+  "D_1": {
+    "state": "D4@P5",
+    "desc": "Flera korrigeringar i P5."
+  },
+  "D_2": {
+    "state": "D3@P5",
+    "desc": "Tillägg i P5."
+  },
+  "_validation": {
+    "valid": false,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [
+      "INVALID_P1_P2_PAIR"
+    ],
+    "reasons": [
+      "P1.1 och P2.2 får inte kombineras."
+    ],
+    "derived": {
+      "deviation_count": 2,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D4@P5",
+          "type": "D4",
+          "phase": "P5"
+        },
+        {
+          "slot": "D_2",
+          "state": "D3@P5",
+          "type": "D3",
+          "phase": "P5"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D3@P5",
+        "D4@P5"
+      ]
+    }
+  }
+}

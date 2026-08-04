@@ -1,0 +1,31 @@
+{
+  "template_id": "RAW_035344",
+  "P1": {
+    "state": "P1.4",
+    "desc": "Kunden öppnar med intent direkt."
+  },
+  "P2": {
+    "state": "P2.1",
+    "desc": "Enskilt ärende."
+  },
+  "P3": {
+    "state": "P3.2",
+    "desc": "Kunden ger bara del av kontaktinformationen."
+  },
+  "P4": {
+    "state": "P4.2",
+    "desc": "En parameter är fel."
+  },
+  "P5": {
+    "state": "P5.2",
+    "desc": "Kundinitierat avslut."
+  },
+  "D_1": {
+    "state": "D1@P1",
+    "desc": "Informationsfråga i P1."
+  },
+  "D_2": {
+    "state": "D2@P3",
+    "desc": "Enskild korrigering i P3."
+  }
+}

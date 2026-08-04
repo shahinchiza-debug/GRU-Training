@@ -1,0 +1,73 @@
+{
+  "template_id": "RAW_011776",
+  "P1": {
+    "state": "P1.2",
+    "desc": "AI öppnar, kunden ger intent direkt."
+  },
+  "P2": {
+    "state": "P2.1",
+    "desc": "Enskilt ärende."
+  },
+  "P3": {
+    "state": "P3.1",
+    "desc": "Kunden ger all kontaktinformation utan problem."
+  },
+  "P4": {
+    "state": "P4.2",
+    "desc": "En parameter är fel."
+  },
+  "P5": {
+    "state": "P5.2",
+    "desc": "Kundinitierat avslut."
+  },
+  "D_1": {
+    "state": null,
+    "desc": "Ingen avvikelse"
+  },
+  "D_2": {
+    "state": null,
+    "desc": "Ingen avvikelse"
+  },
+  "_validation": {
+    "valid": true,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [],
+    "reasons": [],
+    "derived": {
+      "deviation_count": 0,
+      "active_deviations": [],
+      "normalized_deviation_signature": []
+    }
+  },
+  "stage4": {
+    "deviation_group": "del_1_0d",
+    "deviation_group_label": "0D",
+    "turn_count": 6
+  },
+  "stage5": {
+    "turn_count": 6,
+    "language_bucket": "formell_fin_svenska",
+    "language_label": "Formell/fin svenska"
+  },
+  "stage6": {
+    "form_profile": "A1",
+    "form_profile_label": "A1",
+    "form_profile_description": "Kort P1 och kort P3.",
+    "fixed_phase_turns": {
+      "P1": 1,
+      "P3": 1,
+      "P5": 1
+    },
+    "fixed_turn_total": 3,
+    "remaining_turn_budget": 3,
+    "variable_components": [
+      "P2",
+      "P4"
+    ],
+    "distribution_placeholders": {
+      "P2": "X%",
+      "P4": "Y%"
+    },
+    "sum_rule": "P1, P2, P3, P4 och P5 beskriver tillsammans samtalets form."
+  }
+}

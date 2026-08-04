@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Language-style distribution for stage 5 based on the approved matrix.",
+  "turn_order": [6, 8, 9, 10, 12, 14, 18, 25],
+  "language_order": [
+    "formell_fin_svenska",
+    "orten_svenska",
+    "vardaglig_svenska",
+    "brytande_svenska"
+  ],
+  "languages": {
+    "formell_fin_svenska": {
+      "label": "Formell/fin svenska",
+      "total": 1024
+    },
+    "orten_svenska": {
+      "label": "Orten svenska",
+      "total": 3072
+    },
+    "vardaglig_svenska": {
+      "label": "Vardaglig svenska",
+      "total": 4096
+    },
+    "brytande_svenska": {
+      "label": "Brytande svenska",
+      "total": 2048
+    }
+  },
+  "turn_allocations": {
+    "6": {
+      "expected_input_count": 128,
+      "languages": {
+        "formell_fin_svenska": 13,
+        "orten_svenska": 38,
+        "vardaglig_svenska": 51,
+        "brytande_svenska": 26
+      }
+    },
+    "8": {
+      "expected_input_count": 282,
+      "languages": {
+        "formell_fin_svenska": 28,
+        "orten_svenska": 85,
+        "vardaglig_svenska": 113,
+        "brytande_svenska": 56
+      }
+    },
+    "9": {
+      "expected_input_count": 563,
+      "languages": {
+        "formell_fin_svenska": 56,
+        "orten_svenska": 169,
+        "vardaglig_svenska": 225,
+        "brytande_svenska": 113
+      }
+    },
+    "10": {
+      "expected_input_count": 904,
+      "languages": {
+        "formell_fin_svenska": 90,
+        "orten_svenska": 271,
+        "vardaglig_svenska": 362,
+        "brytande_svenska": 181
+      }
+    },
+    "12": {
+      "expected_input_count": 2589,
+      "languages": {
+        "formell_fin_svenska": 259,
+        "orten_svenska": 777,
+        "vardaglig_svenska": 1035,
+        "brytande_svenska": 518
+      }
+    },
+    "14": {
+      "expected_input_count": 3510,
+      "languages": {
+        "formell_fin_svenska": 351,
+        "orten_svenska": 1053,
+        "vardaglig_svenska": 1404,
+        "brytande_svenska": 702
+      }
+    },
+    "18": {
+      "expected_input_count": 1336,
+      "languages": {
+        "formell_fin_svenska": 134,
+        "orten_svenska": 401,
+        "vardaglig_svenska": 534,
+        "brytande_svenska": 267
+      }
+    },
+    "25": {
+      "expected_input_count": 928,
+      "languages": {
+        "formell_fin_svenska": 93,
+        "orten_svenska": 278,
+        "vardaglig_svenska": 372,
+        "brytande_svenska": 185
+      }
+    }
+  }
+}

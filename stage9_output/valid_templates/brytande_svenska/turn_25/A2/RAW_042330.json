@@ -1,0 +1,337 @@
+{
+  "template_id": "RAW_042330",
+  "P1": {
+    "state": "P1.4",
+    "desc": "Kunden öppnar med intent direkt.",
+    "intent_count": 0
+  },
+  "P2": {
+    "state": "P2.3",
+    "desc": "Nytt ärende introduceras under P2.",
+    "intent_count": 2
+  },
+  "P3": {
+    "state": "P3.3",
+    "desc": "Kunden är oklar eller tveksam kring kontaktinformationen.",
+    "intent_count": 0
+  },
+  "P4": {
+    "state": "P4.3",
+    "desc": "Flera parametrar är fel eller flera korrigeringsvarv uppstår.",
+    "intent_count": 3
+  },
+  "P5": {
+    "state": "P5.2",
+    "desc": "Kundinitierat avslut.",
+    "intent_count": 0
+  },
+  "D_1": {
+    "state": "D2@P5",
+    "desc": "Enskild korrigering i P5.",
+    "intent_count": 0
+  },
+  "D_2": {
+    "state": "D4@P5",
+    "desc": "Flera korrigeringar i P5.",
+    "intent_count": 0
+  },
+  "_validation": {
+    "valid": true,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [],
+    "reasons": [],
+    "derived": {
+      "deviation_count": 2,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D2@P5",
+          "type": "D2",
+          "phase": "P5"
+        },
+        {
+          "slot": "D_2",
+          "state": "D4@P5",
+          "type": "D4",
+          "phase": "P5"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D2@P5",
+        "D4@P5"
+      ]
+    }
+  },
+  "stage4": {
+    "deviation_group": "del_3_2d",
+    "deviation_group_label": "2D",
+    "turn_count": 25
+  },
+  "stage5": {
+    "turn_count": 25,
+    "language_bucket": "brytande_svenska",
+    "language_label": "Brytande svenska"
+  },
+  "stage6": {
+    "form_profile": "A2",
+    "form_profile_label": "A2",
+    "form_profile_description": "Kort P1 och langre P3.",
+    "fixed_phase_turns": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1
+    },
+    "fixed_turn_total": 4,
+    "remaining_turn_budget": 21,
+    "variable_components": [
+      "P2",
+      "P4",
+      "D_slot_1",
+      "D_slot_2"
+    ],
+    "distribution_placeholders": {
+      "P2": "X%",
+      "P4": "Y%",
+      "D_slot_1": "Z%",
+      "D_slot_2": "W%"
+    },
+    "sum_rule": "P-faserna beskriver grundformen och D-slot 1-2 laggs ovanpa som variabla avvikelsedelar."
+  },
+  "stage7": {
+    "valid": true,
+    "total_turn_budget": 25,
+    "locked_phase_turns": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1
+    },
+    "locked_turn_total": 4,
+    "remaining_turn_budget": 21,
+    "active_variable_components": [
+      "P2",
+      "P4",
+      "D_slot_1",
+      "D_slot_2"
+    ],
+    "minimum_turn_floor_per_active_component": 1,
+    "minimum_required_variable_turns": 4,
+    "extra_token_budget": 17,
+    "alpha_value": 1.5,
+    "alpha_vector": [
+      1.5,
+      1.5,
+      1.5,
+      1.5
+    ],
+    "dirichlet_weights": {
+      "P2": 0.2834675624628756,
+      "P4": 0.23947861791137234,
+      "D_slot_1": 0.2705954952663216,
+      "D_slot_2": 0.20645832435943043
+    },
+    "variable_turn_allocations": {
+      "P2": 6,
+      "P4": 5,
+      "D_slot_1": 7,
+      "D_slot_2": 3
+    },
+    "final_turn_allocations": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1,
+      "P2": 6,
+      "P4": 5,
+      "D_slot_1": 7,
+      "D_slot_2": 3
+    }
+  },
+  "stage8": {
+    "valid": true,
+    "assignments": {
+      "P1": {
+        "component_type": "phase",
+        "state": "P1.4",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "P2": {
+        "component_type": "phase",
+        "state": "P2.3",
+        "turn_count": 6,
+        "intent_allowed": true,
+        "skip_turn_count_cap": true,
+        "min_intents": 1,
+        "max_intents": 4,
+        "rule_mode": "skip_turn_count_cap",
+        "effective_max": 4,
+        "intent_count": 2
+      },
+      "P3": {
+        "component_type": "phase",
+        "state": "P3.3",
+        "turn_count": 2,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "P4": {
+        "component_type": "phase",
+        "state": "P4.3",
+        "turn_count": 5,
+        "intent_allowed": true,
+        "skip_turn_count_cap": true,
+        "min_intents": 1,
+        "max_intents": 4,
+        "rule_mode": "skip_turn_count_cap",
+        "effective_max": 4,
+        "intent_count": 3
+      },
+      "P5": {
+        "component_type": "phase",
+        "state": "P5.2",
+        "turn_count": 1,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "D_1": {
+        "component_type": "deviation",
+        "state": "D2@P5",
+        "deviation_type": "D2",
+        "turn_count": 7,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      },
+      "D_2": {
+        "component_type": "deviation",
+        "state": "D4@P5",
+        "deviation_type": "D4",
+        "turn_count": 3,
+        "intent_allowed": false,
+        "skip_turn_count_cap": false,
+        "min_intents": 1,
+        "max_intents": 4,
+        "effective_max": 0,
+        "intent_count": 0
+      }
+    },
+    "total_intent_count": 5
+  },
+  "stage9": {
+    "valid": true,
+    "customer": {
+      "first_name": "Karl",
+      "phone": "0766486842"
+    },
+    "booking_context": {
+      "day": "tisdag",
+      "time_preference": {
+        "kind": "relative_time",
+        "value": "idag"
+      }
+    },
+    "selected_services": [
+      "studentklippning",
+      "fade"
+    ],
+    "rule_snapshot": {
+      "service_sampling_mode": "without_replacement",
+      "allow_duplicate_service_within_template": false
+    },
+    "component_payloads": {
+      "P2": {
+        "intent_count": 2,
+        "intents": [
+          {
+            "intent_id": "P2_INT_01",
+            "intent_type": "booking",
+            "service": "studentklippning",
+            "day": "tisdag",
+            "time_preference": {
+              "kind": "relative_time",
+              "value": "idag"
+            }
+          },
+          {
+            "intent_id": "P2_INT_02",
+            "intent_type": "booking",
+            "service": "fade",
+            "day": "tisdag",
+            "time_preference": {
+              "kind": "relative_time",
+              "value": "idag"
+            }
+          }
+        ]
+      },
+      "P4": {
+        "intent_count": 3,
+        "corrections": [
+          {
+            "correction_id": "P4_COR_01",
+            "target": "day",
+            "value": "onsdag"
+          },
+          {
+            "correction_id": "P4_COR_02",
+            "target": "time_preference",
+            "value": {
+              "kind": "exact_time",
+              "value": "19:00"
+            }
+          },
+          {
+            "correction_id": "P4_COR_03",
+            "target": "day",
+            "value": "måndag"
+          }
+        ]
+      },
+      "D_1": {
+        "deviation_type": "D2",
+        "host_phase": "P5",
+        "corrections": [
+          {
+            "correction_id": "D2_COR_01",
+            "target": "day",
+            "value": "fredag"
+          }
+        ]
+      },
+      "D_2": {
+        "deviation_type": "D4",
+        "host_phase": "P5",
+        "corrections": [
+          {
+            "correction_id": "D4_COR_01",
+            "target": "day",
+            "value": "lördag"
+          },
+          {
+            "correction_id": "D4_COR_02",
+            "target": "time_preference",
+            "value": {
+              "kind": "exact_time",
+              "value": "09:45"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "generated_at_utc": "2026-06-28T18:18:39.107820+00:00",
+  "input_directory": "C:\\Users\\shahi\\Documents\\Training mall\\stage3_output",
+  "config_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage4_turn_distribution.json",
+  "output_directory": "C:\\Users\\shahi\\Documents\\Training mall\\stage4_output",
+  "processed_template_count": 10240,
+  "totals_by_turn": {
+    "6": 128,
+    "8": 282,
+    "9": 563,
+    "10": 904,
+    "12": 2589,
+    "14": 3510,
+    "18": 1336,
+    "25": 928
+  }
+}

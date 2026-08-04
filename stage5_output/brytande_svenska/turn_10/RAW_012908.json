@@ -1,0 +1,68 @@
+{
+  "template_id": "RAW_012908",
+  "P1": {
+    "state": "P1.2",
+    "desc": "AI öppnar, kunden ger intent direkt."
+  },
+  "P2": {
+    "state": "P2.1",
+    "desc": "Enskilt ärende."
+  },
+  "P3": {
+    "state": "P3.2",
+    "desc": "Kunden ger bara del av kontaktinformationen."
+  },
+  "P4": {
+    "state": "P4.3",
+    "desc": "Flera parametrar är fel eller flera korrigeringsvarv uppstår."
+  },
+  "P5": {
+    "state": "P5.1",
+    "desc": "Standardavslut."
+  },
+  "D_1": {
+    "state": "D1@P2",
+    "desc": "Informationsfråga i P2."
+  },
+  "D_2": {
+    "state": "D3@P4",
+    "desc": "Tillägg i P4."
+  },
+  "_validation": {
+    "valid": true,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [],
+    "reasons": [],
+    "derived": {
+      "deviation_count": 2,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D1@P2",
+          "type": "D1",
+          "phase": "P2"
+        },
+        {
+          "slot": "D_2",
+          "state": "D3@P4",
+          "type": "D3",
+          "phase": "P4"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D1@P2",
+        "D3@P4"
+      ]
+    }
+  },
+  "stage4": {
+    "deviation_group": "del_3_2d",
+    "deviation_group_label": "2D",
+    "turn_count": 10
+  },
+  "stage5": {
+    "turn_count": 10,
+    "language_bucket": "brytande_svenska",
+    "language_label": "Brytande svenska"
+  }
+}

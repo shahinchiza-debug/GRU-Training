@@ -1,0 +1,62 @@
+{
+  "template_id": "RAW_032903",
+  "P1": {
+    "state": "P1.3",
+    "desc": "Kunden öppnar enkelt, utan intent."
+  },
+  "P2": {
+    "state": "P2.4",
+    "desc": "AI initierar utökning av ärendet."
+  },
+  "P3": {
+    "state": "P3.2",
+    "desc": "Kunden ger bara del av kontaktinformationen."
+  },
+  "P4": {
+    "state": "P4.3",
+    "desc": "Flera parametrar är fel eller flera korrigeringsvarv uppstår."
+  },
+  "P5": {
+    "state": "P5.2",
+    "desc": "Kundinitierat avslut."
+  },
+  "D_1": {
+    "state": "D2@P5",
+    "desc": "Enskild korrigering i P5."
+  },
+  "D_2": {
+    "state": "D1@P5",
+    "desc": "Informationsfråga i P5."
+  },
+  "_validation": {
+    "valid": false,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [
+      "DUPLICATE_UNORDERED_DEVIATION_PAIR"
+    ],
+    "reasons": [
+      "Mallen Ã¤r en duplikatstruktur dÃ¤r D_1 och D_2 bara skiljer sig i slot-ordning."
+    ],
+    "derived": {
+      "deviation_count": 2,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D2@P5",
+          "type": "D2",
+          "phase": "P5"
+        },
+        {
+          "slot": "D_2",
+          "state": "D1@P5",
+          "type": "D1",
+          "phase": "P5"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D1@P5",
+        "D2@P5"
+      ]
+    }
+  }
+}

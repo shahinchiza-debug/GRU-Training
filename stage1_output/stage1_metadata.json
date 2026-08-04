@@ -1,0 +1,17 @@
+{
+  "generated_at_utc": "2026-06-22T18:15:47.527635+00:00",
+  "structure_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\structure.json",
+  "output_directory": "C:\\Users\\shahi\\Documents\\Training mall\\stage1_output",
+  "raw_templates_directory": "C:\\Users\\shahi\\Documents\\Training mall\\stage1_output\\raw_templates",
+  "logic_filter_applied": false,
+  "generation_mode": "deterministic_full_enumeration",
+  "p_count": 288,
+  "d_count": 157,
+  "max_unique_template_space": 45216,
+  "generated_template_count": 45216,
+  "full_space_generated": true,
+  "limit_used": null,
+  "first_template_id": "RAW_000001",
+  "last_template_id": "RAW_045216",
+  "warnings": []
+}

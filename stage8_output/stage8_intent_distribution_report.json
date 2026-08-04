@@ -1,0 +1,17 @@
+{
+  "processed_template_count": 10202,
+  "valid_template_count": 10202,
+  "invalid_template_count": 0,
+  "invalid_reason_counts": {},
+  "valid_totals_by_turn": {
+    "6": 90,
+    "8": 282,
+    "9": 563,
+    "10": 904,
+    "12": 2589,
+    "14": 3510,
+    "18": 1336,
+    "25": 928
+  },
+  "total_intent_count_across_valid_templates": 37870
+}

@@ -1,0 +1,8 @@
+{
+  "generated_at_utc": "2026-07-16T09:53:08.876857+00:00",
+  "input_directory": "C:\\Users\\shahi\\Documents\\Training mall\\stage8_output\\valid_templates",
+  "config_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage9_pools.json",
+  "output_directory": "C:\\Users\\shahi\\Documents\\Training mall\\stage9_output",
+  "valid_template_count": 10202,
+  "invalid_template_count": 0
+}

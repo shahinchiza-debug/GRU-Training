@@ -1,0 +1,63 @@
+{
+  "template_id": "RAW_032856",
+  "P1": {
+    "state": "P1.3",
+    "desc": "Kunden öppnar enkelt, utan intent."
+  },
+  "P2": {
+    "state": "P2.4",
+    "desc": "AI initierar utökning av ärendet."
+  },
+  "P3": {
+    "state": "P3.2",
+    "desc": "Kunden ger bara del av kontaktinformationen."
+  },
+  "P4": {
+    "state": "P4.3",
+    "desc": "Flera parametrar är fel eller flera korrigeringsvarv uppstår."
+  },
+  "P5": {
+    "state": "P5.2",
+    "desc": "Kundinitierat avslut."
+  },
+  "D_1": {
+    "state": "D1@P3",
+    "desc": "Informationsfråga i P3."
+  },
+  "D_2": {
+    "state": "D2@P3",
+    "desc": "Enskild korrigering i P3."
+  },
+  "_validation": {
+    "valid": true,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [],
+    "reasons": [],
+    "derived": {
+      "deviation_count": 2,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D1@P3",
+          "type": "D1",
+          "phase": "P3"
+        },
+        {
+          "slot": "D_2",
+          "state": "D2@P3",
+          "type": "D2",
+          "phase": "P3"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D1@P3",
+        "D2@P3"
+      ]
+    }
+  },
+  "stage4": {
+    "deviation_group": "del_3_2d",
+    "deviation_group_label": "2D",
+    "turn_count": 18
+  }
+}

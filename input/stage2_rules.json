@@ -1,0 +1,113 @@
+﻿{
+    "_comment_file":  "Allt som inte listas hÃ¤r rÃ¤knas som giltigt. Steg 2 kan ocksÃ¥ deduplicera rÃ¥a D_1/D_2-par nÃ¤r slot-ordningen inte ska rÃ¤knas.",
+    "_comment_two_deviation_policy":  "allow_same_phase=true ger 64 D-strukturer fÃ¶re P-filter. allow_same_phase=false ger 51 D-strukturer fÃ¶re P-filter.",
+    "schema_version":  "3.0.0",
+    "known_deviation_types":  [
+                                  "D1",
+                                  "D2",
+                                  "D3",
+                                  "D4"
+                              ],
+    "max_deviation_slots":  2,
+    "two_deviation_policy":  {
+                                 "allow_same_type":  false,
+                                 "allow_same_phase":  true,
+                                 "dedupe_unordered_pairs":  true
+                             },
+    "invalid_p1_p2_pairs":  [
+                                {
+                                    "p1":  "P1.1",
+                                    "p2":  "P2.1",
+                                    "reason_code":  "INVALID_P1_P2_PAIR",
+                                    "reason":  "P1.1 och P2.1 får inte kombineras."
+                                },
+                                {
+                                    "p1":  "P1.1",
+                                    "p2":  "P2.2",
+                                    "reason_code":  "INVALID_P1_P2_PAIR",
+                                    "reason":  "P1.1 och P2.2 får inte kombineras."
+                                },
+                                {
+                                    "p1":  "P1.1",
+                                    "p2":  "P2.3",
+                                    "reason_code":  "INVALID_P1_P2_PAIR",
+                                    "reason":  "P1.1 och P2.3 får inte kombineras."
+                                },
+                                {
+                                    "p1":  "P1.1",
+                                    "p2":  "P2.4",
+                                    "reason_code":  "INVALID_P1_P2_PAIR",
+                                    "reason":  "P1.1 och P2.4 får inte kombineras."
+                                },
+                                {
+                                    "p1":  "P1.4",
+                                    "p2":  "P2.1",
+                                    "reason_code":  "INVALID_P1_P2_PAIR",
+                                    "reason":  "P1.4 och P2.1 får inte kombineras."
+                                },
+                                {
+                                    "p1":  "P1.4",
+                                    "p2":  "P2.4",
+                                    "reason_code":  "INVALID_P1_P2_PAIR",
+                                    "reason":  "P1.4 och P2.4 får inte kombineras."
+                                }
+                            ],
+    "invalid_d_type_phase_pairs":  [
+                                       {
+                                           "type":  "D2",
+                                           "phase":  "P1",
+                                           "reason_code":  "INVALID_D_PHASE",
+                                           "reason":  "D2 fÃ¥r inte ligga i P1."
+                                       },
+                                       {
+                                           "type":  "D2",
+                                           "phase":  "P2",
+                                           "reason_code":  "INVALID_D_PHASE",
+                                           "reason":  "D2 fÃ¥r inte ligga i P2."
+                                       },
+                                       {
+                                           "type":  "D2",
+                                           "phase":  "P4",
+                                           "reason_code":  "INVALID_D_PHASE",
+                                           "reason":  "D2 fÃ¥r inte ligga i P4."
+                                       },
+                                       {
+                                           "type":  "D3",
+                                           "phase":  "P1",
+                                           "reason_code":  "INVALID_D_PHASE",
+                                           "reason":  "D3 fÃ¥r inte ligga i P1."
+                                       },
+                                       {
+                                           "type":  "D3",
+                                           "phase":  "P2",
+                                           "reason_code":  "INVALID_D_PHASE",
+                                           "reason":  "D3 fÃ¥r inte ligga i P2."
+                                       },
+                                       {
+                                           "type":  "D4",
+                                           "phase":  "P1",
+                                           "reason_code":  "INVALID_D_PHASE",
+                                           "reason":  "D4 får inte ligga i P1."
+                                       },
+                                       {
+                                           "type":  "D4",
+                                           "phase":  "P2",
+                                           "reason_code":  "INVALID_D_PHASE",
+                                           "reason":  "D4 får inte ligga i P2."
+                                       },
+                                       {
+                                           "type":  "D4",
+                                           "phase":  "P4",
+                                           "reason_code":  "INVALID_D_PHASE",
+                                           "reason":  "D4 får inte ligga i P4."
+                                       }
+                                   ],
+    "invalid_p3_p4_pairs":  [
+                                {
+                                    "p3":  "P3.3",
+                                    "p4":  "P4.1",
+                                    "reason_code":  "INVALID_P3_P4_PAIR",
+                                    "reason":  "P3.3 och P4.1 får inte kombineras."
+                                }
+                            ]
+}

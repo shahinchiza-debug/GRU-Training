@@ -1,0 +1,62 @@
+{
+  "template_id": "RAW_001131",
+  "P1": {
+    "state": "P1.1",
+    "desc": "AI öppnar, kunden ger inte intent direkt."
+  },
+  "P2": {
+    "state": "P2.1",
+    "desc": "Enskilt ärende."
+  },
+  "P3": {
+    "state": "P3.2",
+    "desc": "Kunden ger bara del av kontaktinformationen."
+  },
+  "P4": {
+    "state": "P4.1",
+    "desc": "Ingen korrigering."
+  },
+  "P5": {
+    "state": "P5.2",
+    "desc": "Kundinitierat avslut."
+  },
+  "D_1": {
+    "state": "D1@P2",
+    "desc": "Informationsfråga i P2."
+  },
+  "D_2": {
+    "state": "D2@P5",
+    "desc": "Enskild korrigering i P5."
+  },
+  "_validation": {
+    "valid": false,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [
+      "INVALID_P1_P2_PAIR"
+    ],
+    "reasons": [
+      "P1.1 och P2.1 får inte kombineras."
+    ],
+    "derived": {
+      "deviation_count": 2,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D1@P2",
+          "type": "D1",
+          "phase": "P2"
+        },
+        {
+          "slot": "D_2",
+          "state": "D2@P5",
+          "type": "D2",
+          "phase": "P5"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D1@P2",
+        "D2@P5"
+      ]
+    }
+  }
+}

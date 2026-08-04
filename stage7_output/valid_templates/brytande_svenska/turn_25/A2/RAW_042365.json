@@ -1,0 +1,141 @@
+{
+  "template_id": "RAW_042365",
+  "P1": {
+    "state": "P1.4",
+    "desc": "Kunden öppnar med intent direkt."
+  },
+  "P2": {
+    "state": "P2.3",
+    "desc": "Nytt ärende introduceras under P2."
+  },
+  "P3": {
+    "state": "P3.3",
+    "desc": "Kunden är oklar eller tveksam kring kontaktinformationen."
+  },
+  "P4": {
+    "state": "P4.3",
+    "desc": "Flera parametrar är fel eller flera korrigeringsvarv uppstår."
+  },
+  "P5": {
+    "state": "P5.2",
+    "desc": "Kundinitierat avslut."
+  },
+  "D_1": {
+    "state": "D3@P5",
+    "desc": "Tillägg i P5."
+  },
+  "D_2": {
+    "state": "D4@P3",
+    "desc": "Flera korrigeringar i P3."
+  },
+  "_validation": {
+    "valid": true,
+    "rules_path": "C:\\Users\\shahi\\Documents\\Training mall\\input\\stage2_rules.json",
+    "reason_codes": [],
+    "reasons": [],
+    "derived": {
+      "deviation_count": 2,
+      "active_deviations": [
+        {
+          "slot": "D_1",
+          "state": "D3@P5",
+          "type": "D3",
+          "phase": "P5"
+        },
+        {
+          "slot": "D_2",
+          "state": "D4@P3",
+          "type": "D4",
+          "phase": "P3"
+        }
+      ],
+      "normalized_deviation_signature": [
+        "D3@P5",
+        "D4@P3"
+      ]
+    }
+  },
+  "stage4": {
+    "deviation_group": "del_3_2d",
+    "deviation_group_label": "2D",
+    "turn_count": 25
+  },
+  "stage5": {
+    "turn_count": 25,
+    "language_bucket": "brytande_svenska",
+    "language_label": "Brytande svenska"
+  },
+  "stage6": {
+    "form_profile": "A2",
+    "form_profile_label": "A2",
+    "form_profile_description": "Kort P1 och langre P3.",
+    "fixed_phase_turns": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1
+    },
+    "fixed_turn_total": 4,
+    "remaining_turn_budget": 21,
+    "variable_components": [
+      "P2",
+      "P4",
+      "D_slot_1",
+      "D_slot_2"
+    ],
+    "distribution_placeholders": {
+      "P2": "X%",
+      "P4": "Y%",
+      "D_slot_1": "Z%",
+      "D_slot_2": "W%"
+    },
+    "sum_rule": "P-faserna beskriver grundformen och D-slot 1-2 laggs ovanpa som variabla avvikelsedelar."
+  },
+  "stage7": {
+    "valid": true,
+    "total_turn_budget": 25,
+    "locked_phase_turns": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1
+    },
+    "locked_turn_total": 4,
+    "remaining_turn_budget": 21,
+    "active_variable_components": [
+      "P2",
+      "P4",
+      "D_slot_1",
+      "D_slot_2"
+    ],
+    "minimum_turn_floor_per_active_component": 1,
+    "minimum_required_variable_turns": 4,
+    "extra_token_budget": 17,
+    "alpha_value": 1.5,
+    "alpha_vector": [
+      1.5,
+      1.5,
+      1.5,
+      1.5
+    ],
+    "dirichlet_weights": {
+      "P2": 0.21528521119240765,
+      "P4": 0.46543018068009273,
+      "D_slot_1": 0.12194232362483579,
+      "D_slot_2": 0.19734228450266372
+    },
+    "variable_turn_allocations": {
+      "P2": 6,
+      "P4": 8,
+      "D_slot_1": 2,
+      "D_slot_2": 5
+    },
+    "final_turn_allocations": {
+      "P1": 1,
+      "P3": 2,
+      "P5": 1,
+      "P2": 6,
+      "P4": 8,
+      "D_slot_1": 2,
+      "D_slot_2": 5
+    }
+  }
+}
