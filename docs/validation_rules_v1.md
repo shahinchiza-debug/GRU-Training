@@ -51,10 +51,10 @@ Giltiga faser per deviation:
 
 Antal tjanster ar en intern regel i `P2`, inte ett separat block som gor `P2` till `10`.
 
-- `P2.1` = `1` tjanst
-- `P2.2` = `2`, `3` eller `4` tjanster
-- `P2.3` = `2`, `3` eller `4` tjanster
-- `P2.4` = `2`, `3` eller `4` tjanster
+- `P2.1` = inga tjanster; endast `BOOK_001`
+- `P2.2` = `1`, `2` eller `3` tjanster
+- `P2.3` = `1`, `2` eller `3` tjanster
+- `P2.4` = `1`, `2` eller `3` tjanster
 
 `meso.P2.service_count` maste stamma med:
 

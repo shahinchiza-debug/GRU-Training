@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120">
+  <style>
+    .title { font: 700 30px 'Segoe UI', sans-serif; fill: #172033; }
+    .subtitle { font: 400 17px 'Segoe UI', sans-serif; fill: #516075; }
+    .label { font: 700 16px 'Segoe UI', sans-serif; fill: #172033; text-anchor: middle; dominant-baseline: middle; }
+    .small { font: 400 14px 'Segoe UI', sans-serif; fill: #334155; text-anchor: middle; dominant-baseline: middle; }
+    .tiny { font: 400 13px 'Segoe UI', sans-serif; fill: #475569; text-anchor: middle; dominant-baseline: middle; }
+    .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; rx: 12; }
+    .state { fill: #eaf2ff; stroke: #3974bc; stroke-width: 2.5; rx: 12; }
+    .count { fill: #fff5dc; stroke: #d69e2e; stroke-width: 2.5; rx: 12; }
+    .mlp { fill: #f4efff; stroke: #805ad5; stroke-width: 2.5; rx: 12; }
+    .target { fill: #e8f8ef; stroke: #2f855a; stroke-width: 2.5; rx: 12; }
+    .effect { fill: #ffffff; stroke: #38a169; stroke-width: 2; rx: 22; }
+    .note { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 12; }
+    .line { fill: none; stroke: #64748b; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .dash { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 7 6; }
+  </style>
+
+  <rect width="1600" height="1120" fill="#f8fafc"/>
+  <text x="70" y="62" class="title">D2: enskild korrigeringshierarki</text>
+  <text x="70" y="92" class="subtitle">D2 gör exakt en korrigering av ett tidigare skapat objekt. Den skapar inga nya intent_id:n.</text>
+
+  <rect x="710" y="125" width="180" height="58" class="box"/>
+  <text x="800" y="154" class="label">D2</text>
+  <path d="M800 183 V235" class="line"/>
+  <rect x="690" y="235" width="220" height="58" class="state"/>
+  <text x="800" y="264" class="label">State: D2</text>
+  <path d="M800 293 V340" class="line"/>
+  <rect x="680" y="340" width="240" height="58" class="count"/>
+  <text x="800" y="369" class="label">target_count: 1</text>
+  <path d="M800 398 V450" class="line"/>
+
+  <path d="M800 450 H310 V485 M800 450 V485 M800 450 H1290 V485" class="line"/>
+  <rect x="185" y="485" width="250" height="60" class="mlp"/><text x="310" y="515" class="label">MLP1: Booking</text>
+  <rect x="675" y="485" width="250" height="60" class="mlp"/><text x="800" y="515" class="label">MLP1: Tjänster</text>
+  <rect x="1165" y="485" width="250" height="60" class="mlp"/><text x="1290" y="515" class="label">MLP1: Auth</text>
+
+  <path d="M310 545 V577 H205 V605 M310 577 H415 V605" class="line"/>
+  <rect x="105" y="605" width="200" height="58" class="mlp"/><text x="205" y="634" class="label">MLP2: ändra</text>
+  <rect x="315" y="605" width="200" height="58" class="mlp"/><text x="415" y="634" class="label">MLP2: omboka</text>
+  <path d="M205 663 V695 H310 V725 M415 663 V695 H310" class="line"/>
+  <rect x="190" y="725" width="240" height="60" class="target"/>
+  <text x="310" y="748" class="label">target_id: BOOK_001</text><text x="310" y="770" class="tiny">väljs från active_booking</text>
+  <path d="M205 785 V811 M415 785 V811" class="dash"/>
+  <rect x="105" y="811" width="200" height="48" class="effect"/><text x="205" y="827" class="tiny">valfritt bokningsfält</text><text x="205" y="844" class="tiny">ändras</text>
+  <rect x="315" y="811" width="200" height="48" class="effect"/><text x="415" y="827" class="tiny">day, time och/eller</text><text x="415" y="844" class="tiny">staff ändras</text>
+
+  <path d="M800 545 V605" class="line"/>
+  <rect x="700" y="605" width="200" height="58" class="mlp"/><text x="800" y="634" class="label">MLP2: byta ut</text>
+  <path d="M800 663 V725" class="line"/>
+  <rect x="680" y="725" width="240" height="60" class="target"/>
+  <text x="800" y="748" class="label">target_id: SVC_00X</text><text x="800" y="770" class="tiny">väljs från active_services</text>
+  <path d="M800 785 V811" class="dash"/>
+  <rect x="700" y="811" width="200" height="48" class="effect"/><text x="800" y="827" class="tiny">service-fältet ändras</text><text x="800" y="844" class="tiny">till en unik tjänst</text>
+
+  <path d="M1290 545 V605" class="line"/>
+  <rect x="1190" y="605" width="200" height="58" class="mlp"/><text x="1290" y="634" class="label">MLP2: ändra</text>
+  <path d="M1290 663 V725" class="line"/>
+  <rect x="1170" y="725" width="240" height="60" class="target"/>
+  <text x="1290" y="748" class="label">target_id: AUTH_001</text><text x="1290" y="770" class="tiny">väljs från active_auth</text>
+  <path d="M1290 785 V811" class="dash"/>
+  <rect x="1190" y="811" width="200" height="48" class="effect"/><text x="1290" y="827" class="tiny">name eller phone</text><text x="1290" y="844" class="tiny">ändras</text>
+
+  <rect x="180" y="930" width="1240" height="78" class="note"/>
+  <text x="800" y="958" class="label">D2-regel</text>
+  <text x="800" y="985" class="small">Generatorn väljer bara grenar där minst ett giltigt target finns. Byta ut får inte skapa en dubblett i active_services.</text>
+</svg>

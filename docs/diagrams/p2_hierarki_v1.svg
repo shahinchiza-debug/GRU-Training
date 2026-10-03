@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1130" viewBox="0 0 1800 1130">
+  <style>
+    .title { font: 700 30px 'Segoe UI', sans-serif; fill: #172033; }
+    .subtitle { font: 400 17px 'Segoe UI', sans-serif; fill: #516075; }
+    .label { font: 700 16px 'Segoe UI', sans-serif; fill: #172033; text-anchor: middle; dominant-baseline: middle; }
+    .small { font: 400 14px 'Segoe UI', sans-serif; fill: #334155; text-anchor: middle; dominant-baseline: middle; }
+    .tiny { font: 400 13px 'Segoe UI', sans-serif; fill: #475569; text-anchor: middle; dominant-baseline: middle; }
+    .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; rx: 12; }
+    .state { fill: #eaf2ff; stroke: #3974bc; stroke-width: 2.5; rx: 12; }
+    .count { fill: #fff5dc; stroke: #d69e2e; stroke-width: 2.5; rx: 12; }
+    .mlp { fill: #f4efff; stroke: #805ad5; stroke-width: 2.5; rx: 12; }
+    .created { fill: #e8f8ef; stroke: #2f855a; stroke-width: 2.5; rx: 12; }
+    .note { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 12; }
+    .line { fill: none; stroke: #64748b; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .dash { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 7 6; }
+  </style>
+
+  <rect width="1800" height="1130" fill="#f8fafc"/>
+  <text x="70" y="62" class="title">P2: grundbokning och tjänster</text>
+  <text x="70" y="92" class="subtitle">State bestämmer samtalsmönster och intent_count. Varje intent skapar ett nytt objekt som senare P4 och D-noder kan referera till.</text>
+
+  <rect x="810" y="125" width="180" height="58" class="box"/>
+  <text x="900" y="154" class="label">P2</text>
+  <path d="M900 183 V215 H255 V245 M900 215 H685 V245 M900 215 H1115 V245 M900 215 H1545 V245" class="line"/>
+
+  <rect x="125" y="245" width="260" height="70" class="state"/>
+  <text x="255" y="268" class="label">State: P2.1</text><text x="255" y="291" class="small">Enskilt ärende</text>
+  <rect x="555" y="245" width="260" height="70" class="state"/>
+  <text x="685" y="268" class="label">State: P2.2</text><text x="685" y="291" class="small">Flera ärenden direkt</text>
+  <rect x="985" y="245" width="260" height="70" class="state"/>
+  <text x="1115" y="268" class="label">State: P2.3</text><text x="1115" y="291" class="small">Nytt ärende under P2</text>
+  <rect x="1415" y="245" width="260" height="70" class="state"/>
+  <text x="1545" y="268" class="label">State: P2.4</text><text x="1545" y="291" class="small">AI initierar utökning</text>
+
+  <path d="M255 315 V350 M685 315 V350 M1115 315 V350 M1545 315 V350" class="line"/>
+  <rect x="110" y="350" width="290" height="64" class="count"/>
+  <text x="255" y="374" class="label">intent_count</text><text x="255" y="396" class="small">Låses för P2.1</text>
+  <rect x="540" y="350" width="290" height="64" class="count"/>
+  <text x="685" y="374" class="label">intent_count</text><text x="685" y="396" class="small">Låses för P2.2</text>
+  <rect x="970" y="350" width="290" height="64" class="count"/>
+  <text x="1115" y="374" class="label">intent_count</text><text x="1115" y="396" class="small">Låses för P2.3</text>
+  <rect x="1400" y="350" width="290" height="64" class="count"/>
+  <text x="1545" y="374" class="label">intent_count</text><text x="1545" y="396" class="small">Låses för P2.4</text>
+
+  <path d="M255 414 V454 H900 M685 414 V454 H900 M1115 414 V454 H900 M1545 414 V454 H900" class="line"/>
+  <rect x="685" y="454" width="430" height="64" class="note"/>
+  <text x="900" y="478" class="label">Intent-slot</text><text x="900" y="500" class="small">Upprepas exakt så många gånger som state-kontraktet kräver.</text>
+  <path d="M900 518 V558" class="line"/>
+
+  <path d="M900 558 H470 V595 M900 558 H1330 V595" class="line"/>
+  <rect x="330" y="595" width="280" height="60" class="mlp"/>
+  <text x="470" y="625" class="label">MLP1: Booking</text>
+  <rect x="1190" y="595" width="280" height="60" class="mlp"/>
+  <text x="1330" y="625" class="label">MLP1: Tjänster</text>
+
+  <path d="M470 655 V700 M1330 655 V700" class="line"/>
+  <rect x="330" y="700" width="280" height="60" class="mlp"/>
+  <text x="470" y="730" class="label">MLP2: boka</text>
+  <rect x="1190" y="700" width="280" height="60" class="mlp"/>
+  <text x="1330" y="730" class="label">MLP2: lägga till</text>
+
+  <path d="M470 760 V805 M1330 760 V805" class="line"/>
+  <rect x="310" y="805" width="320" height="72" class="created"/>
+  <text x="470" y="830" class="label">intent_id: BOOK_001</text>
+  <text x="470" y="853" class="tiny">skapas en gång per mall</text>
+  <rect x="1170" y="805" width="320" height="72" class="created"/>
+  <text x="1330" y="830" class="label">intent_id: SVC_00X</text>
+  <text x="1330" y="853" class="tiny">SVC_001, SVC_002 och så vidare</text>
+
+  <path d="M470 877 V915 M1330 877 V915" class="dash"/>
+  <rect x="290" y="915" width="360" height="64" class="note"/>
+  <text x="470" y="939" class="label">Bokningsparametrar</text>
+  <text x="470" y="961" class="small">day, time, staff</text>
+  <rect x="1150" y="915" width="360" height="64" class="note"/>
+  <text x="1330" y="939" class="label">Tjänsteparameter</text>
+  <text x="1330" y="961" class="small">service</text>
+
+  <rect x="155" y="1020" width="1490" height="78" class="note"/>
+  <text x="900" y="1048" class="label">P2-regler att låsa</text>
+  <text x="900" y="1075" class="small">Exakt en BOOK_001 per mall. Varje SVC_ID måste ha en unik tjänst. P2 får endast skapa nya ID:n, aldrig target_id eller korrigeringshandlingar.</text>
+</svg>

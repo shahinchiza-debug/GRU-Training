@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120">
+  <style>
+    .title { font: 700 30px 'Segoe UI', sans-serif; fill: #172033; }
+    .subtitle { font: 400 17px 'Segoe UI', sans-serif; fill: #516075; }
+    .label { font: 700 16px 'Segoe UI', sans-serif; fill: #172033; text-anchor: middle; dominant-baseline: middle; }
+    .small { font: 400 14px 'Segoe UI', sans-serif; fill: #334155; text-anchor: middle; dominant-baseline: middle; }
+    .tiny { font: 400 13px 'Segoe UI', sans-serif; fill: #475569; text-anchor: middle; dominant-baseline: middle; }
+    .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; rx: 12; }
+    .state { fill: #eaf2ff; stroke: #3974bc; stroke-width: 2.5; rx: 12; }
+    .mlp { fill: #f4efff; stroke: #805ad5; stroke-width: 2.5; rx: 12; }
+    .created { fill: #e8f8ef; stroke: #2f855a; stroke-width: 2.5; rx: 12; }
+    .effect { fill: #ffffff; stroke: #38a169; stroke-width: 2; rx: 22; }
+    .note { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 12; }
+    .line { fill: none; stroke: #64748b; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .dash { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 7 6; }
+  </style>
+
+  <rect width="1600" height="1120" fill="#f8fafc"/>
+  <text x="70" y="62" class="title">D3: ny tjänst-hierarki</text>
+  <text x="70" y="92" class="subtitle">D3 följer mallformatet direkt: den innehåller ett nytt tjänste-intent och placeras mellan faser via flow.</text>
+
+  <rect x="485" y="135" width="180" height="58" class="box"/>
+  <text x="575" y="164" class="label">P4</text>
+  <rect x="710" y="135" width="180" height="58" class="state"/>
+  <text x="800" y="164" class="label">D3</text>
+  <rect x="935" y="135" width="180" height="58" class="box"/>
+  <text x="1025" y="164" class="label">P5</text>
+  <path d="M665 164 H710 M890 164 H935" class="line"/>
+  <text x="800" y="222" class="small">flow: P4 → D3 → P5</text>
+
+  <path d="M800 255 V298" class="line"/>
+  <rect x="670" y="298" width="260" height="58" class="state"/>
+  <text x="800" y="327" class="label">state: D3</text>
+  <path d="M800 356 V400" class="line"/>
+  <rect x="640" y="400" width="320" height="62" class="note"/>
+  <text x="800" y="424" class="label">customer_turns: 2</text>
+  <text x="800" y="446" class="small">Kunden lägger till en ny tjänst.</text>
+  <path d="M800 462 V510" class="line"/>
+
+  <rect x="670" y="510" width="260" height="58" class="note"/>
+  <text x="800" y="539" class="label">intents[0]</text>
+  <path d="M800 568 V610" class="line"/>
+  <rect x="670" y="610" width="260" height="62" class="created"/>
+  <text x="800" y="634" class="label">intent_id: SVC_003</text>
+  <text x="800" y="656" class="tiny">nästa lediga SVC_ID</text>
+
+  <path d="M800 672 V708" class="line"/>
+  <path d="M800 708 H565 V740 M800 708 H1035 V740" class="line"/>
+  <rect x="440" y="740" width="250" height="58" class="mlp"/>
+  <text x="565" y="769" class="label">mlp1: Tjänster</text>
+  <rect x="910" y="740" width="250" height="58" class="mlp"/>
+  <text x="1035" y="769" class="label">mlp2: lägga till</text>
+  <path d="M565 798 V833 H800 M1035 798 V833 H800" class="line"/>
+  <rect x="630" y="833" width="340" height="64" class="effect"/>
+  <text x="800" y="857" class="label">parameters.service</text>
+  <text x="800" y="879" class="small">Exempel: slingor</text>
+
+  <path d="M800 897 V930" class="dash"/>
+  <rect x="180" y="930" width="1240" height="110" class="note"/>
+  <text x="800" y="958" class="label">D3-regler</text>
+  <text x="800" y="985" class="small">Tjänsten väljs från tjänstepoolen minus active_services. Det nya SVC_ID:t läggs sedan i active_services.</text>
+  <text x="800" y="1011" class="small">D3 använder aldrig target_id, eftersom den skapar en ny tjänst i stället för att ändra en tidigare tjänst.</text>
+</svg>

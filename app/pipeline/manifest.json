@@ -1,0 +1,209 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Central manifest for the modular training-template pipeline.",
+  "stage_order": [
+    "stage1",
+    "stage2",
+    "stage3",
+    "stage4",
+    "stage5",
+    "stage6",
+    "stage7",
+    "stage8",
+    "stage9",
+    "stage10"
+  ],
+  "stages": {
+    "stage1": {
+      "label": "Raa P/D-kombinationer",
+      "description": "Genererar hela den raa strukturrymden innan filter.",
+      "script": "app/stages/stage01_raw/run.py",
+      "args": [
+        "--structure",
+        "config/structure.json",
+        "--outdir",
+        "data/output/stage01_raw"
+      ],
+      "inputs": [
+        "config/structure.json"
+      ],
+      "outputs": [
+        "data/output/stage01_raw"
+      ]
+    },
+    "stage2": {
+      "label": "Filter giltig ogiltig",
+      "description": "Filtrerar raa mallar till giltiga och ogiltiga kombinationer.",
+      "script": "app/stages/stage02_filter/run.py",
+      "args": [
+        "--indir",
+        "data/output/stage01_raw/raw_templates",
+        "--rules",
+        "config/stage2_rules.json",
+        "--outdir",
+        "data/output/stage02_filter"
+      ],
+      "inputs": [
+        "data/output/stage01_raw/raw_templates",
+        "config/stage2_rules.json"
+      ],
+      "outputs": [
+        "data/output/stage02_filter"
+      ]
+    },
+    "stage3": {
+      "label": "Split 0D 1D 2D",
+      "description": "Delar giltiga steg-2-mallar i tre deviationsgrupper.",
+      "script": "app/stages/stage03_split/run.py",
+      "args": [
+        "--indir",
+        "data/output/stage02_filter/valid_templates",
+        "--outdir",
+        "data/output/stage03_split"
+      ],
+      "inputs": [
+        "data/output/stage02_filter/valid_templates"
+      ],
+      "outputs": [
+        "data/output/stage03_split"
+      ]
+    },
+    "stage4": {
+      "label": "Turn-count-fordelning",
+      "description": "Fordelar steg-3-mallarna pa turantal enligt config.",
+      "script": "app/stages/stage04_turns/run.py",
+      "args": [
+        "--indir",
+        "data/output/stage03_split",
+        "--config",
+        "config/stage4_turn_distribution.json",
+        "--outdir",
+        "data/output/stage04_turns"
+      ],
+      "inputs": [
+        "data/output/stage03_split",
+        "config/stage4_turn_distribution.json"
+      ],
+      "outputs": [
+        "data/output/stage04_turns"
+      ]
+    },
+    "stage5": {
+      "label": "Sprakfordelning",
+      "description": "Fordelar turgrupperna over sprakstilar.",
+      "script": "app/stages/stage05_language/run.py",
+      "args": [
+        "--indir",
+        "data/output/stage04_turns",
+        "--config",
+        "config/stage5_language_distribution.json",
+        "--outdir",
+        "data/output/stage05_language"
+      ],
+      "inputs": [
+        "data/output/stage04_turns",
+        "config/stage5_language_distribution.json"
+      ],
+      "outputs": [
+        "data/output/stage05_language"
+      ]
+    },
+    "stage6": {
+      "label": "Formprofiler A1 A2",
+      "description": "Lagger pa formprofil och fasta turn-lasar for varje mall.",
+      "script": "app/stages/stage06_form/run.py",
+      "args": [
+        "--indir",
+        "data/output/stage05_language",
+        "--config",
+        "config/stage6_form_distribution.json",
+        "--outdir",
+        "data/output/stage06_form"
+        ],
+        "inputs": [
+          "data/output/stage05_language",
+          "config/stage6_form_distribution.json"
+        ],
+      "outputs": [
+        "data/output/stage06_form"
+      ]
+    },
+    "stage7": {
+      "label": "Dirichlet turn-allokering",
+      "description": "Fordelar rorliga turer med Dirichlet utan att stegen blir hart kopplade.",
+      "script": "app/stages/stage07_dirichlet/run.py",
+      "args": [
+        "--indir",
+        "data/output/stage06_form",
+        "--config",
+        "config/stage7_dirichlet_turn_allocation.json",
+        "--outdir",
+        "data/output/stage07_dirichlet"
+      ],
+      "inputs": [
+        "data/output/stage06_form",
+        "config/stage7_dirichlet_turn_allocation.json"
+      ],
+      "outputs": [
+        "data/output/stage07_dirichlet"
+      ]
+    },
+    "stage8": {
+      "label": "Intent-fordelning",
+      "description": "Tilldelar intent_count per komponent efter turn-allokeringen.",
+      "script": "app/stages/stage08_intents/run.py",
+      "args": [
+        "--indir",
+        "data/output/stage07_dirichlet/valid_templates",
+        "--config",
+        "config/stage8_intent_distribution.json",
+        "--outdir",
+        "data/output/stage08_intents"
+      ],
+      "inputs": [
+        "data/output/stage07_dirichlet/valid_templates",
+        "config/stage8_intent_distribution.json"
+      ],
+      "outputs": [
+        "data/output/stage08_intents"
+      ]
+    },
+    "stage9": {
+      "label": "Pooltilldelning",
+      "description": "Fyller giltiga mallar med poolvarden som namn, telefon, dag, tid och tjanster.",
+      "script": "app/stages/stage09_pools/run.py",
+      "args": [
+        "--indir",
+        "data/output/stage08_intents/valid_templates",
+        "--config",
+        "config/stage9_pools.json",
+        "--outdir",
+        "data/output/stage09_pools"
+      ],
+      "inputs": [
+        "data/output/stage08_intents/valid_templates",
+        "config/stage9_pools.json"
+      ],
+      "outputs": [
+        "data/output/stage09_pools"
+      ]
+    },
+    "stage10": {
+      "label": "Hierarkisk slutmall",
+      "description": "Skapar block, ID:n och target-kopplingar enligt state-matrisen utan D4.",
+      "script": "app/stages/stage10_hierarchy/run.py",
+      "args": [
+        "--indir",
+        "data/output/stage09_pools/valid_templates",
+        "--outdir",
+        "data/output/stage10_hierarchy"
+      ],
+      "inputs": [
+        "data/output/stage09_pools/valid_templates"
+      ],
+      "outputs": [
+        "data/output/stage10_hierarchy"
+      ]
+    }
+  }
+}
