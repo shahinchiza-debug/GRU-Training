@@ -1,11 +1,11 @@
 # App
 
-Den har mappen innehaller all aktiv kod for generatorn.
+Den här mappen innehåller all aktiv kod för generatorn.
 
-## Innehall
+## Innehåll
 
 - `main.py`
-  - Huvudingang for pipelinen.
+  - Huvudingång för pipelinen.
 
 - `pipeline/`
   - Manifest, stage-katalog och orchestrator.
@@ -15,9 +15,11 @@ Den har mappen innehaller all aktiv kod for generatorn.
   - Varje steg har en egen `run.py`.
 
 - `shared/`
-  - Reservyta for gemensamma helpers om ni senare vill bryta ut delad logik.
+  - Reservyta för gemensamma helpers om ni senare vill bryta ut delad logik.
 
 ## Exempel
+
+Kör kommandona från projektets rotmapp. Börja alltid med `--dry-run` när du vill kontrollera vad som kommer att köras.
 
 ```powershell
 python .\app\main.py --list
