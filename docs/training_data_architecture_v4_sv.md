@@ -210,7 +210,7 @@ pooler:
     tid:      [09:00, 10:00, 11:00, 13:00, 14:00, 15:00, 16:00, 17:00]
     dag:      [mÃ¥ndag, tisdag, onsdag, torsdag, fredag, lÃ¶rdag]
     stylist:  [Ahmed, Khalid, ingen preferens]
-    typ:      [boka, omboka, avboka]
+    typ:      [boka, ändra, omboka]
     drag:     1 per session, delas Ã¶ver alla intenter
 
   autentisering:

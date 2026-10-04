@@ -53,10 +53,10 @@ Detta betyder till exempel:
 
 State-regler:
 
-- `P2.1` = exakt 1 bastjanst
-- `P2.2` = flera tjanster anges tillsammans
-- `P2.3` = flera tjanster kommer sekventiellt
-- `P2.4` = AI promptar fram fler behov
+- `P2.1` = endast en bokning; ingen tjänst anges eller skapas i P2
+- `P2.2` = BOOK_001 plus en eller flera tjänster anges tillsammans
+- `P2.3` = BOOK_001 plus en eller flera tjänster kommer sekventiellt
+- `P2.4` = AI promptar fram BOOK_001 plus en eller flera tjänster
 
 ### P3
 
