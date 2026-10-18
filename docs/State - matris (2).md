@@ -1,9 +1,7 @@
 | State | Betydelse | `opening_intent_present` | `intent_count` | Nya objekt | Regler |
 | --- | --- | --- | --- | --- | --- |
 | P1.1 | AI inleder. Kunden svarar utan intent. | `false` | `0` | Inga | P2 behöver fråga fram behovet. |
-| P1.2 | AI inleder. Kunden svarar med minst ett intent. | `true` | `0` | Inga | P2 fortsätter och strukturerar kundens uttryckta behov. |
 | P1.3 | Kunden inleder med hälsning/vag öppning utan intent. | `false` | `0` | Inga | AI behöver hjälpa kunden in i P2. |
-| P1.4 | Kunden inleder och uttrycker minst ett intent. | `true` | `0` | Inga | P2 bekräftar och bygger bokning/tjänster. |
 
 | State | Betydelse | Nya objekt | `intent_count` | Tillåtna grenar | Regler |
 | --- | --- | --- | --- | --- | --- |

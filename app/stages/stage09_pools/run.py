@@ -116,6 +116,14 @@ def pick_exact_time(rng, config):
     return f"{hour}:{minute}"
 
 
+def pick_booking_time(rng, config, exclude=None):
+    """Bookings always store an exact time; other time pools are for AI rendering later."""
+    while True:
+        candidate = {"kind": "exact_time", "value": pick_exact_time(rng, config)}
+        if exclude is None or candidate != exclude:
+            return candidate
+
+
 def pick_time_preference(rng, config, exclude=None):
     kinds = ["exact_time", "relative_time", "time_part"]
     while True:
@@ -264,7 +272,7 @@ def build_corrections(prefix, target_count, target_ids, rng, config, booking_con
                 value = (
                     pick_day(rng, config, exclude=booking_context["day"])
                     if field == "day"
-                    else pick_time_preference(
+                    else pick_booking_time(
                         rng, config, exclude=booking_context["time_preference"]
                     )
                 )
@@ -399,7 +407,7 @@ def annotate_valid_stage9(template, config):
     session = SessionState()
     booking_context = {
         "day": pick_day(rng, config),
-        "time_preference": pick_time_preference(rng, config),
+        "time_preference": pick_booking_time(rng, config),
         "staff": pick_staff(rng, config),
     }
     component_payloads = {}
@@ -541,7 +549,8 @@ Vad steg 9 gor:
 - drar ett slumpmassigt fornamn
 - drar ett slumpmassigt telefonnummer
 - drar en dag
-- drar en tidspreferens av typen `exact_time`, `relative_time` eller `time_part`
+- drar alltid en exakt bokningstid från `exact_time`
+- behåller `relative_time` och `time_part` i poolen för ett senare AI-renderingssteg
 - raknar ut bokningstid som `30` eller `60` minuter beroende pa tjanst och tillaegg
 - drar tjanster utan dubletter inom samma mall
 - filtrerar bort tjanster som bryter mot kompatibilitetsreglerna

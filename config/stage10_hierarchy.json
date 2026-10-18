@@ -1,11 +1,9 @@
 {
-  "schema_version": "2.0.0",
+  "schema_version": "2.1.0",
   "description": "Regelkälla för steg 10. Definierar slutmallens tillåtna ID-hierarki utan D4.",
   "state_instructions": {
     "P1.1": "AI inleder samtalet. Kundens svar innehåller inget intent.",
-    "P1.2": "AI inleder samtalet. Kundens svar innehåller minst ett intent.",
     "P1.3": "Kunden inleder samtalet. Kundens första yttrande innehåller inget intent.",
-    "P1.4": "Kunden inleder samtalet. Kundens första yttrande innehåller minst ett intent.",
     "P2.1": "Kunden uttrycker endast ett intent.",
     "P2.2": "Kunden uttrycker fler än ett intent.",
     "P2.3": "Kunden driver samtalet och uttrycker sina intents ett i taget.",

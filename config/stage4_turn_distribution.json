@@ -1,48 +1,45 @@
 {
-  "schema_version": "1.0.0",
-  "description": "Turn-count distribution for stage 4 based on the approved 0D/1D/2D matrix.",
+  "schema_version": "2.0.0",
+  "description": "Turn-count distribution for stage 4. Each group is allocated from its actual input count using these percentages.",
   "turn_order": [6, 8, 9, 10, 12, 14, 18, 25],
   "groups": {
     "del_1_0d": {
       "label": "0D",
-      "expected_input_count": 160,
       "turn_allocations": [
-        { "turn_count": 6, "count": 32, "percent": 20 },
-        { "turn_count": 8, "count": 32, "percent": 20 },
-        { "turn_count": 9, "count": 16, "percent": 10 },
-        { "turn_count": 10, "count": 16, "percent": 10 },
-        { "turn_count": 12, "count": 16, "percent": 10 },
-        { "turn_count": 14, "count": 16, "percent": 10 },
-        { "turn_count": 18, "count": 16, "percent": 10 },
-        { "turn_count": 25, "count": 16, "percent": 10 }
+        { "turn_count": 6, "percent": 20 },
+        { "turn_count": 8, "percent": 20 },
+        { "turn_count": 9, "percent": 10 },
+        { "turn_count": 10, "percent": 10 },
+        { "turn_count": 12, "percent": 10 },
+        { "turn_count": 14, "percent": 10 },
+        { "turn_count": 18, "percent": 10 },
+        { "turn_count": 25, "percent": 10 }
       ]
     },
     "del_2_1d": {
       "label": "1D",
-      "expected_input_count": 1920,
       "turn_allocations": [
-        { "turn_count": 6, "count": 96, "percent": 5 },
-        { "turn_count": 8, "count": 250, "percent": 13 },
-        { "turn_count": 9, "count": 384, "percent": 20 },
-        { "turn_count": 10, "count": 480, "percent": 25 },
-        { "turn_count": 12, "count": 288, "percent": 15 },
-        { "turn_count": 14, "count": 230, "percent": 12 },
-        { "turn_count": 18, "count": 96, "percent": 5 },
-        { "turn_count": 25, "count": 96, "percent": 5 }
+        { "turn_count": 6, "percent": 5 },
+        { "turn_count": 8, "percent": 13 },
+        { "turn_count": 9, "percent": 20 },
+        { "turn_count": 10, "percent": 25 },
+        { "turn_count": 12, "percent": 15 },
+        { "turn_count": 14, "percent": 12 },
+        { "turn_count": 18, "percent": 5 },
+        { "turn_count": 25, "percent": 5 }
       ]
     },
     "del_3_2d": {
       "label": "2D",
-      "expected_input_count": 12480,
       "turn_allocations": [
-        { "turn_count": 6, "count": 0, "percent": 0 },
-        { "turn_count": 8, "count": 0, "percent": 0 },
-        { "turn_count": 9, "count": 250, "percent": 2 },
-        { "turn_count": 10, "count": 624, "percent": 5 },
-        { "turn_count": 12, "count": 3494, "percent": 28 },
-        { "turn_count": 14, "count": 4992, "percent": 40 },
-        { "turn_count": 18, "count": 1872, "percent": 15 },
-        { "turn_count": 25, "count": 1248, "percent": 10 }
+        { "turn_count": 6, "percent": 0 },
+        { "turn_count": 8, "percent": 0 },
+        { "turn_count": 9, "percent": 2 },
+        { "turn_count": 10, "percent": 5 },
+        { "turn_count": 12, "percent": 28 },
+        { "turn_count": 14, "percent": 40 },
+        { "turn_count": 18, "percent": 15 },
+        { "turn_count": 25, "percent": 10 }
       ]
     }
   }

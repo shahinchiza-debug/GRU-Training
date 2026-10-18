@@ -52,16 +52,32 @@ def clear_previous_outputs(group_dirs, outdir):
 
 def validate_config(config, stage3_dir):
     for group_key, group_config in config["groups"].items():
-        expected = group_config["expected_input_count"]
-        allocated = sum(item["count"] for item in group_config["turn_allocations"])
-        if expected != allocated:
+        allocations = group_config["turn_allocations"]
+        percent_total = sum(item["percent"] for item in allocations)
+        if percent_total != 100:
             raise ValueError(
-                f"Fel i config för {group_key}: expected_input_count={expected} men turn_allocations summerar till {allocated}."
+                f"Fel i config för {group_key}: procent summerar till {percent_total}, inte 100."
             )
 
         source_dir = stage3_dir / group_key
         if not source_dir.exists():
             raise ValueError(f"Saknar källmapp för {group_key}: {source_dir}")
+
+
+def allocate_counts(template_count, allocations):
+    """Allocate all templates by percentage using deterministic largest remainder."""
+    raw_counts = [template_count * item["percent"] / 100 for item in allocations]
+    counts = [int(raw_count) for raw_count in raw_counts]
+    remaining = template_count - sum(counts)
+    ranked_indexes = sorted(
+        range(len(allocations)),
+        key=lambda index: (-(raw_counts[index] - counts[index]), index),
+    )
+
+    for index in ranked_indexes[:remaining]:
+        counts[index] += 1
+
+    return counts
 
 
 def annotate_template(template, group_key, group_label, turn_count):
@@ -112,19 +128,15 @@ def main():
     for group_key, group_config in config["groups"].items():
         source_dir = stage3_dir / group_key
         template_paths = sorted(source_dir.glob("RAW_*.json"))
-        expected_input_count = group_config["expected_input_count"]
-
-        if len(template_paths) != expected_input_count:
-            raise ValueError(
-                f"Fel antal mallar i {source_dir}. Förväntat {expected_input_count}, hittade {len(template_paths)}."
-            )
+        allocated_counts = allocate_counts(
+            len(template_paths), group_config["turn_allocations"]
+        )
 
         index = 0
         group_counter = Counter()
 
-        for allocation in group_config["turn_allocations"]:
+        for allocation, count in zip(group_config["turn_allocations"], allocated_counts):
             turn_count = allocation["turn_count"]
-            count = allocation["count"]
             turn_dir = group_dirs[group_key][turn_count]
             bucket = template_paths[index:index + count]
 
@@ -155,7 +167,7 @@ def main():
 
         totals_by_group[group_key] = {
             "label": group_config["label"],
-            "input_count": expected_input_count,
+            "input_count": len(template_paths),
             "turn_distribution": dict(group_counter),
         }
 

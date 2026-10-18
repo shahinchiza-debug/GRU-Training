@@ -37,9 +37,7 @@ Detta betyder till exempel:
 `P1` maste etablera oppning och intent.
 
 - `P1.1` = AI tar initiativ, minimal kundstart
-- `P1.2` = AI tar initiativ, rikare kundsvar
 - `P1.3` = kund tar initiativ, minimal
-- `P1.4` = kund tar initiativ, rik
 
 ### P2
 

@@ -1,5 +1,5 @@
 {
-  "schema_version": "3.1.0",
+  "schema_version": "3.2.0",
   "generator_stage": "stage1_raw_cartesian",
   "description": "Råa P- och D-strukturer för steg 1 innan filtrering eller deduplicering.",
   "source_docs": [
@@ -9,7 +9,7 @@
     "docs/descriptive_template_format_v1.md"
   ],
   "logic_filter_applied": false,
-  "max_unique_template_space": 45216,
+  "max_unique_template_space": 22608,
   "template_shape": {
     "fixed_keys": [
       "p1",
@@ -23,7 +23,7 @@
   },
   "p_space": {
     "counting_mode": "pure_cartesian",
-    "expected_count": 288,
+    "expected_count": 144,
     "categories": {
       "p1": [
         {
@@ -32,19 +32,9 @@
           "description": "AI öppnar, kunden ger inte intent direkt."
         },
         {
-          "state_id": "P1.2",
-          "template_value": "ai_oppnar_med_direkt_intent",
-          "description": "AI öppnar, kunden ger intent direkt."
-        },
-        {
           "state_id": "P1.3",
           "template_value": "kund_oppnar_enkelt",
           "description": "Kunden öppnar enkelt, utan intent."
-        },
-        {
-          "state_id": "P1.4",
-          "template_value": "kund_oppnar_med_intent",
-          "description": "Kunden öppnar med intent direkt."
         }
       ],
       "p2": [
@@ -193,6 +183,6 @@
     "p2_counting_rule": "P2 räknas som 4 strukturella states.",
     "later_filtering": "Ett separat filtersteg ska senare dela upp råmallarna i giltiga och ogiltiga.",
     "raw_d_rule": "Steg 1 behåller rå slot-ordning för D. D_1 och D_2 behandlas som ordnade slots innan deduplicering.",
-    "raw_formula": "P-rymden är 4 x 4 x 3 x 3 x 2 = 288. D-rymden är 1 + 12 + (12 x 12) = 157. Total rå steg-1-rymd är 288 x 157 = 45216."
+    "raw_formula": "P-rymden är 2 x 4 x 3 x 3 x 2 = 144. D-rymden är 1 + 12 + (12 x 12) = 157. Total rå steg-1-rymd är 144 x 157 = 22608."
   }
 }

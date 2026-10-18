@@ -14,44 +14,7 @@
                                  "allow_same_phase":  true,
                                  "dedupe_unordered_pairs":  true
                              },
-    "invalid_p1_p2_pairs":  [
-                                {
-                                    "p1":  "P1.1",
-                                    "p2":  "P2.1",
-                                    "reason_code":  "INVALID_P1_P2_PAIR",
-                                    "reason":  "P1.1 och P2.1 får inte kombineras."
-                                },
-                                {
-                                    "p1":  "P1.1",
-                                    "p2":  "P2.2",
-                                    "reason_code":  "INVALID_P1_P2_PAIR",
-                                    "reason":  "P1.1 och P2.2 får inte kombineras."
-                                },
-                                {
-                                    "p1":  "P1.1",
-                                    "p2":  "P2.3",
-                                    "reason_code":  "INVALID_P1_P2_PAIR",
-                                    "reason":  "P1.1 och P2.3 får inte kombineras."
-                                },
-                                {
-                                    "p1":  "P1.1",
-                                    "p2":  "P2.4",
-                                    "reason_code":  "INVALID_P1_P2_PAIR",
-                                    "reason":  "P1.1 och P2.4 får inte kombineras."
-                                },
-                                {
-                                    "p1":  "P1.4",
-                                    "p2":  "P2.1",
-                                    "reason_code":  "INVALID_P1_P2_PAIR",
-                                    "reason":  "P1.4 och P2.1 får inte kombineras."
-                                },
-                                {
-                                    "p1":  "P1.4",
-                                    "p2":  "P2.4",
-                                    "reason_code":  "INVALID_P1_P2_PAIR",
-                                    "reason":  "P1.4 och P2.4 får inte kombineras."
-                                }
-                            ],
+    "invalid_p1_p2_pairs":  [],
     "invalid_d_type_phase_pairs":  [
                                        {
                                            "type":  "D2",

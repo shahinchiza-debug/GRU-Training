@@ -1,5 +1,6 @@
 import argparse
 import json
+import math
 import shutil
 from collections import Counter
 from datetime import datetime, timezone
@@ -55,28 +56,40 @@ def build_output_dirs(outdir, config):
 
 
 def validate_config(config):
-    totals_by_language = Counter()
+    configured_languages = set(config["languages"])
+    ordered_languages = config["language_order"]
+    if set(ordered_languages) != configured_languages:
+        raise ValueError("language_order must contain every configured language exactly once.")
 
-    for turn_count in config["turn_order"]:
-        turn_key = str(turn_count)
-        allocation = config["turn_allocations"][turn_key]
-        expected_input_count = allocation["expected_input_count"]
-        allocated = sum(allocation["languages"].values())
-        if expected_input_count != allocated:
-            raise ValueError(
-                f"Fel i config för turn_{turn_count}: expected_input_count={expected_input_count} men språkallokering summerar till {allocated}."
-            )
+    percent_total = sum(
+        config["languages"][language_key]["percent"]
+        for language_key in ordered_languages
+    )
+    if percent_total != 100:
+        raise ValueError(f"Språkprocent summerar till {percent_total}, inte 100.")
 
-        for language_key, count in allocation["languages"].items():
-            totals_by_language[language_key] += count
+    expected_turn_keys = {str(turn_count) for turn_count in config["turn_order"]}
+    if set(config["turn_allocations"]) != expected_turn_keys:
+        raise ValueError("turn_allocations must contain every turn_count in turn_order.")
 
-    for language_key, language_config in config["languages"].items():
-        expected_total = language_config["total"]
-        actual_total = totals_by_language[language_key]
-        if expected_total != actual_total:
-            raise ValueError(
-                f"Fel i config för {language_key}: total={expected_total} men turn-fördelningen summerar till {actual_total}."
-            )
+
+def allocate_counts(template_count, config):
+    language_order = config["language_order"]
+    raw_counts = [
+        template_count * config["languages"][language_key]["percent"] / 100
+        for language_key in language_order
+    ]
+    counts = [math.floor(raw_count) for raw_count in raw_counts]
+    remaining = template_count - sum(counts)
+    ranked_indexes = sorted(
+        range(len(language_order)),
+        key=lambda index: (-(raw_counts[index] - counts[index]), index),
+    )
+
+    for index in ranked_indexes[:remaining]:
+        counts[index] += 1
+
+    return dict(zip(language_order, counts))
 
 
 def gather_templates_for_turn(stage4_dir, turn_count):
@@ -143,20 +156,14 @@ def main():
 
     for turn_count in config["turn_order"]:
         turn_key = str(turn_count)
-        allocation = config["turn_allocations"][turn_key]
         template_paths = gather_templates_for_turn(stage4_dir, turn_count)
-        expected_input_count = allocation["expected_input_count"]
-
-        if len(template_paths) != expected_input_count:
-            raise ValueError(
-                f"Fel antal mallar för turn_{turn_count}. Förväntat {expected_input_count}, hittade {len(template_paths)}."
-            )
+        language_allocations = allocate_counts(len(template_paths), config)
 
         index = 0
         turn_language_counts = {}
 
         for language_key in config["language_order"]:
-            language_count = allocation["languages"][language_key]
+            language_count = language_allocations[language_key]
             language_label = config["languages"][language_key]["label"]
             language_dir = language_dirs[language_key][turn_count]
             bucket = template_paths[index:index + language_count]
@@ -188,7 +195,7 @@ def main():
             )
 
         per_turn_report[turn_key] = {
-            "input_count": expected_input_count,
+            "input_count": len(template_paths),
             "languages": turn_language_counts,
         }
 

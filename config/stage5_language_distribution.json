@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0.0",
-  "description": "Language-style distribution for stage 5 based on the approved matrix.",
+  "schema_version": "2.0.0",
+  "description": "Language-style distribution for stage 5. Each turn bucket is allocated from its actual input count using these percentages.",
   "turn_order": [6, 8, 9, 10, 12, 14, 18, 25],
   "language_order": [
     "formell_fin_svenska",
@@ -11,93 +11,29 @@
   "languages": {
     "formell_fin_svenska": {
       "label": "Formell/fin svenska",
-      "total": 1456
+      "percent": 10
     },
     "orten_svenska": {
       "label": "Orten svenska",
-      "total": 4368
+      "percent": 30
     },
     "vardaglig_svenska": {
       "label": "Vardaglig svenska",
-      "total": 5824
+      "percent": 40
     },
     "brytande_svenska": {
       "label": "Brytande svenska",
-      "total": 2912
+      "percent": 20
     }
   },
   "turn_allocations": {
-    "6": {
-      "expected_input_count": 128,
-      "languages": {
-        "formell_fin_svenska": 13,
-        "orten_svenska": 38,
-        "vardaglig_svenska": 51,
-        "brytande_svenska": 26
-      }
-    },
-    "8": {
-      "expected_input_count": 282,
-      "languages": {
-        "formell_fin_svenska": 28,
-        "orten_svenska": 85,
-        "vardaglig_svenska": 113,
-        "brytande_svenska": 56
-      }
-    },
-    "9": {
-      "expected_input_count": 650,
-      "languages": {
-        "formell_fin_svenska": 65,
-        "orten_svenska": 195,
-        "vardaglig_svenska": 260,
-        "brytande_svenska": 130
-      }
-    },
-    "10": {
-      "expected_input_count": 1120,
-      "languages": {
-        "formell_fin_svenska": 112,
-        "orten_svenska": 336,
-        "vardaglig_svenska": 448,
-        "brytande_svenska": 224
-      }
-    },
-    "12": {
-      "expected_input_count": 3798,
-      "languages": {
-        "formell_fin_svenska": 380,
-        "orten_svenska": 1140,
-        "vardaglig_svenska": 1519,
-        "brytande_svenska": 759
-      }
-    },
-    "14": {
-      "expected_input_count": 5238,
-      "languages": {
-        "formell_fin_svenska": 524,
-        "orten_svenska": 1571,
-        "vardaglig_svenska": 2095,
-        "brytande_svenska": 1048
-      }
-    },
-    "18": {
-      "expected_input_count": 1984,
-      "languages": {
-        "formell_fin_svenska": 198,
-        "orten_svenska": 595,
-        "vardaglig_svenska": 794,
-        "brytande_svenska": 397
-      }
-    },
-    "25": {
-      "expected_input_count": 1360,
-      "languages": {
-        "formell_fin_svenska": 136,
-        "orten_svenska": 408,
-        "vardaglig_svenska": 544,
-        "brytande_svenska": 272
-      }
-    }
+    "6": {},
+    "8": {},
+    "9": {},
+    "10": {},
+    "12": {},
+    "14": {},
+    "18": {},
+    "25": {}
   }
 }
