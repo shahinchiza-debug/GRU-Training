@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120">
+  <style>
+    .title { font: 700 30px 'Segoe UI', sans-serif; fill: #172033; }
+    .subtitle { font: 400 17px 'Segoe UI', sans-serif; fill: #516075; }
+    .label { font: 700 16px 'Segoe UI', sans-serif; fill: #172033; text-anchor: middle; dominant-baseline: middle; }
+    .small { font: 400 14px 'Segoe UI', sans-serif; fill: #334155; text-anchor: middle; dominant-baseline: middle; }
+    .tiny { font: 400 13px 'Segoe UI', sans-serif; fill: #475569; text-anchor: middle; dominant-baseline: middle; }
+    .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; rx: 12; }
+    .state { fill: #eaf2ff; stroke: #3974bc; stroke-width: 2.5; rx: 12; }
+    .mlp { fill: #f4efff; stroke: #805ad5; stroke-width: 2.5; rx: 12; }
+    .target { fill: #e8f8ef; stroke: #2f855a; stroke-width: 2.5; rx: 12; }
+    .effect { fill: #ffffff; stroke: #38a169; stroke-width: 2; rx: 22; }
+    .note { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 12; }
+    .line { fill: none; stroke: #64748b; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .dash { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 7 6; }
+  </style>
+
+  <rect width="1600" height="1120" fill="#f8fafc"/>
+  <text x="70" y="62" class="title">D1: FAQ-hierarki</text>
+  <text x="70" y="92" class="subtitle">D1 ställer en informationsfråga. Den skapar inga ID:n, ändrar inga objekt och uppdaterar inte sessionsminnet.</text>
+
+  <rect x="710" y="125" width="180" height="58" class="box"/>
+  <text x="800" y="154" class="label">D1</text>
+  <path d="M800 183 V235 H475 V270 M800 235 H1125 V270" class="line"/>
+
+  <rect x="315" y="270" width="320" height="68" class="state"/>
+  <text x="475" y="293" class="label">Referens-FAQ</text>
+  <text x="475" y="315" class="small">Fråga kopplad till tidigare intent</text>
+  <rect x="965" y="270" width="320" height="68" class="state"/>
+  <text x="1125" y="293" class="label">Generell FAQ</text>
+  <text x="1125" y="315" class="small">Fri informationsfråga</text>
+
+  <path d="M475 338 V385 M1125 338 V385" class="line"/>
+  <rect x="350" y="385" width="250" height="60" class="mlp"/>
+  <text x="475" y="415" class="label">MLP1: FAQ</text>
+  <rect x="1000" y="385" width="250" height="60" class="mlp"/>
+  <text x="1125" y="415" class="label">MLP1: FAQ</text>
+
+  <path d="M475 445 V490 M1125 445 V490" class="line"/>
+  <rect x="315" y="490" width="320" height="66" class="note"/>
+  <text x="475" y="514" class="label">pool: booking/service/auth</text>
+  <text x="475" y="537" class="small">Välj FAQ från relevant pool.</text>
+  <rect x="965" y="490" width="320" height="66" class="note"/>
+  <text x="1125" y="514" class="label">pool: general</text>
+  <text x="1125" y="537" class="small">Välj FAQ från general-poolen.</text>
+
+  <path d="M475 556 V605 M1125 556 V605" class="line"/>
+  <rect x="355" y="605" width="240" height="64" class="target"/>
+  <text x="475" y="629" class="label">reference_id: tidigare intent</text>
+  <text x="475" y="651" class="tiny">BOOK_001, SVC_00X eller AUTH_001</text>
+  <rect x="995" y="605" width="260" height="64" class="note"/>
+  <text x="1125" y="629" class="label">Inget reference_id</text>
+  <text x="1125" y="651" class="tiny">finns ingen tidigare koppling</text>
+
+  <path d="M475 669 V718 M1125 669 V718" class="dash"/>
+  <rect x="335" y="718" width="280" height="58" class="effect"/>
+  <text x="475" y="742" class="small">FAQ besvaras, sedan återgår</text>
+  <text x="475" y="760" class="small">samtalet till flowet</text>
+  <rect x="985" y="718" width="280" height="58" class="effect"/>
+  <text x="1125" y="742" class="small">FAQ besvaras, sedan återgår</text>
+  <text x="1125" y="760" class="small">samtalet till flowet</text>
+
+  <rect x="180" y="870" width="1240" height="154" class="note"/>
+  <text x="800" y="900" class="label">D1-regler</text>
+  <text x="800" y="928" class="small">D1 har ingen MLP2, ingen intents-lista och inget intent_id. Den förändrar aldrig BOOK_001, SVC_ID eller AUTH_001.</text>
+  <text x="800" y="954" class="small">Referens-FAQ får bara väljas när det valda intent_id:t redan finns i sessionsminnet.</text>
+  <text x="800" y="980" class="small">General-FAQ kan väljas utan reference_id, eftersom frågan inte behöver handla om något tidigare skapat objekt.</text>
+</svg>

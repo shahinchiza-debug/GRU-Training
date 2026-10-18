@@ -1,0 +1,39 @@
+{
+  "schema_version": "2.0.0",
+  "description": "Language-style distribution for stage 5. Each turn bucket is allocated from its actual input count using these percentages.",
+  "turn_order": [6, 8, 9, 10, 12, 14, 18, 25],
+  "language_order": [
+    "formell_fin_svenska",
+    "orten_svenska",
+    "vardaglig_svenska",
+    "brytande_svenska"
+  ],
+  "languages": {
+    "formell_fin_svenska": {
+      "label": "Formell/fin svenska",
+      "percent": 10
+    },
+    "orten_svenska": {
+      "label": "Orten svenska",
+      "percent": 30
+    },
+    "vardaglig_svenska": {
+      "label": "Vardaglig svenska",
+      "percent": 40
+    },
+    "brytande_svenska": {
+      "label": "Brytande svenska",
+      "percent": 20
+    }
+  },
+  "turn_allocations": {
+    "6": {},
+    "8": {},
+    "9": {},
+    "10": {},
+    "12": {},
+    "14": {},
+    "18": {},
+    "25": {}
+  }
+}

@@ -37,9 +37,7 @@ Detta betyder till exempel:
 `P1` maste etablera oppning och intent.
 
 - `P1.1` = AI tar initiativ, minimal kundstart
-- `P1.2` = AI tar initiativ, rikare kundsvar
 - `P1.3` = kund tar initiativ, minimal
-- `P1.4` = kund tar initiativ, rik
 
 ### P2
 
@@ -53,10 +51,10 @@ Detta betyder till exempel:
 
 State-regler:
 
-- `P2.1` = exakt 1 bastjanst
-- `P2.2` = flera tjanster anges tillsammans
-- `P2.3` = flera tjanster kommer sekventiellt
-- `P2.4` = AI promptar fram fler behov
+- `P2.1` = endast en bokning; ingen tjänst anges eller skapas i P2
+- `P2.2` = BOOK_001 plus en eller flera tjänster anges tillsammans
+- `P2.3` = BOOK_001 plus en eller flera tjänster kommer sekventiellt
+- `P2.4` = AI promptar fram BOOK_001 plus en eller flera tjänster
 
 ### P3
 

@@ -1,0 +1,55 @@
+{
+  "schema_version": "2.1.0",
+  "description": "Regelkälla för steg 10. Definierar slutmallens tillåtna ID-hierarki utan D4.",
+  "state_instructions": {
+    "P1.1": "AI inleder samtalet. Kundens svar innehåller inget intent.",
+    "P1.3": "Kunden inleder samtalet. Kundens första yttrande innehåller inget intent.",
+    "P2.1": "Kunden uttrycker endast ett intent.",
+    "P2.2": "Kunden uttrycker fler än ett intent.",
+    "P2.3": "Kunden driver samtalet och uttrycker sina intents ett i taget.",
+    "P2.4": "AI driver samtalet genom följdfrågor för att få fram fler intents.",
+    "P3.1": "Kunden anger både namn och telefonnummer i första tur.",
+    "P3.2": "Kunden anger namn och telefonnummer över två turer.",
+    "P3.3": "AI behöver förklara varför autentiseringsinformation behövs.",
+    "P4.1": "Ingen tidigare bokningsdetalj behöver korrigeras.",
+    "P4.2": "Exakt en tidigare bokningsdetalj behöver korrigeras.",
+    "P4.3": "Två eller fler tidigare bokningsdetaljer behöver korrigeras.",
+    "P5.1": "AI avslutar samtalet.",
+    "P5.2": "Kunden avslutar samtalet.",
+    "D1": "Kunden ställer en informationsfråga (FAQ). Ingen tidigare bokningsdetalj ändras.",
+    "D2": "Kunden korrigerar information inom exakt ett target_id. Vilket target_id som ska korrigeras framgår av mallen. AI avgör utifrån kundens ändring vilka bokningsdetaljer inom detta target_id som ska ändras. Flera bokningsdetaljer inom samma objekt får ändras samtidigt.",
+    "D3": "Kunden lägger till en ny tjänst till den befintliga bokningen eller förfrågan.",
+    "D5": "Kunden korrigerar information inom minst två target_id. Vilka target_id som ska korrigeras framgår av mallen. AI avgör utifrån kundens ändringar vilka bokningsdetaljer inom respektive target_id som ska ändras. Flera bokningsdetaljer inom varje berört objekt får ändras samtidigt."
+  },
+  "p2_service_count_by_state": {
+    "P2.1": [0],
+    "P2.2": [1, 2, 3],
+    "P2.3": [1, 2, 3],
+    "P2.4": [1, 2, 3]
+  },
+  "target_count_by_phase_state": {
+    "P4.1": [0],
+    "P4.2": [1],
+    "P4.3": [2, 3, 4]
+  },
+  "target_count_by_deviation_type": {
+    "D2": [1],
+    "D5": [2, 3, 4]
+  },
+  "intent_creators": {
+    "Booking": ["boka"],
+    "Tjänster": ["lägga till"],
+    "Auth": ["skapa"]
+  },
+  "target_actions": {
+    "Booking": ["ändra", "omboka"],
+    "Tjänster": ["byta ut"],
+    "Auth": ["ändra"]
+  },
+  "d1_faq_rules": {
+    "mlp1": "FAQ",
+    "general_pool": "general",
+    "reference_pools": ["booking", "service", "auth"],
+    "reference_id_field": "reference_id"
+  }
+}

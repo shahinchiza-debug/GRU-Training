@@ -1,0 +1,54 @@
+{
+  "schema_version": "3.0.0",
+  "description": "Steg 8. State-baserad tilldelning av intent_count och target_count.",
+  "input_layout": "stage7_output/valid_templates/<sprak>/turn_<antal>/<formprofil>/RAW_*.json",
+  "output_layout": "stage8_output/valid_templates/<sprak>/turn_<antal>/<formprofil>/RAW_*.json",
+  "invalid_layout": "stage8_output/invalid_templates/<sprak>/turn_<antal>/<formprofil>/RAW_*.json",
+  "random_seed_namespace": "stage8_intents_v2",
+  "evaluation_order": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "D_1",
+    "D_2"
+  ],
+  "turn_source_by_component": {
+    "P1": "P1",
+    "P2": "P2",
+    "P3": "P3",
+    "P4": "P4",
+    "P5": "P5",
+    "D_1": "D_slot_1",
+    "D_2": "D_slot_2"
+  },
+  "intent_count_definition": "Antal nya intent_id som skapas i komponenten.",
+  "count_limits": {
+    "max_count": 4,
+    "skip_turn_cap_states": ["P2.2", "P4.3", "D5"]
+  },
+  "service_plan": {
+    "max_total_services": 4,
+    "p2_service_counts_by_state": {
+      "P2.1": [0],
+      "P2.2": [1, 2, 3],
+      "P2.3": [1, 2, 3],
+      "P2.4": [1, 2, 3]
+    },
+    "d3_service_count": 1
+  },
+  "minimum_turns_by_phase_state": {
+    "P2.3": 2,
+    "P2.4": 2
+  },
+  "target_count_by_phase_state": {
+    "P4.1": [0],
+    "P4.2": [1],
+    "P4.3": [2, 3, 4]
+  },
+  "target_count_by_deviation_type": {
+    "D2": [1],
+    "D5": [2, 3, 4]
+  }
+}

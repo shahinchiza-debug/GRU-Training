@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1220" viewBox="0 0 1800 1220">
+  <style>
+    .title { font: 700 30px 'Segoe UI', sans-serif; fill: #172033; }
+    .subtitle { font: 400 17px 'Segoe UI', sans-serif; fill: #516075; }
+    .label { font: 700 16px 'Segoe UI', sans-serif; fill: #172033; text-anchor: middle; dominant-baseline: middle; }
+    .small { font: 400 14px 'Segoe UI', sans-serif; fill: #334155; text-anchor: middle; dominant-baseline: middle; }
+    .tiny { font: 400 13px 'Segoe UI', sans-serif; fill: #475569; text-anchor: middle; dominant-baseline: middle; }
+    .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; rx: 12; }
+    .state { fill: #eaf2ff; stroke: #3974bc; stroke-width: 2.5; rx: 12; }
+    .check { fill: #fff5dc; stroke: #d69e2e; stroke-width: 2.5; rx: 12; }
+    .mlp { fill: #f4efff; stroke: #805ad5; stroke-width: 2.5; rx: 12; }
+    .created { fill: #e8f8ef; stroke: #2f855a; stroke-width: 2.5; rx: 12; }
+    .note { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 12; }
+    .line { fill: none; stroke: #64748b; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+    .dash { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 7 6; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="1800" height="1220" fill="#f8fafc"/>
+  <text x="70" y="62" class="title">Generatorns beslutskedja</text>
+  <text x="70" y="92" class="subtitle">Generatorn läser en mall i flow-ordning. Varje block använder sitt state-kontrakt och det aktuella sessionsläget.</text>
+
+  <!-- General flow -->
+  <rect x="100" y="150" width="230" height="76" class="box"/>
+  <text x="215" y="176" class="label">1. Läs flow</text>
+  <text x="215" y="201" class="small">P1 → P2 → P3 → D3 ...</text>
+  <path d="M330 188 H405" class="line"/>
+  <rect x="405" y="150" width="230" height="76" class="box"/>
+  <text x="520" y="176" class="label">2. Välj nästa block</text>
+  <text x="520" y="201" class="small">Exempel: P2</text>
+  <path d="M635 188 H710" class="line"/>
+  <rect x="710" y="150" width="230" height="76" class="state"/>
+  <text x="825" y="176" class="label">3. Läs state</text>
+  <text x="825" y="201" class="small">Exempel: P2.3</text>
+  <path d="M940 188 H1015" class="line"/>
+  <rect x="1015" y="150" width="280" height="76" class="check"/>
+  <text x="1155" y="176" class="label">4. Läs state-kontrakt</text>
+  <text x="1155" y="201" class="small">intent_count och tillåtna grenar</text>
+  <path d="M1295 188 H1370" class="line"/>
+  <rect x="1370" y="150" width="300" height="76" class="check"/>
+  <text x="1520" y="176" class="label">5. Kontrollera sessionsläge</text>
+  <text x="1520" y="201" class="small">Vad finns, vad är möjligt?</text>
+
+  <path d="M1520 226 V288 H900 V330" class="line"/>
+  <rect x="670" y="330" width="460" height="74" class="note"/>
+  <text x="900" y="356" class="label">6. Skapa eller korrigera enligt blockets hierarki</text>
+  <text x="900" y="380" class="small">MLP1 → MLP2 → intent_id eller target_id → parametrar</text>
+  <path d="M900 404 V447" class="line"/>
+
+  <!-- Example label -->
+  <rect x="630" y="447" width="540" height="66" class="state"/>
+  <text x="900" y="471" class="label">Exempel: P2.3 med 3 intents</text>
+  <text x="900" y="494" class="small">Kunden driver samtalet och introducerar ärenden sekventiellt.</text>
+  <path d="M900 513 V550" class="line"/>
+
+  <!-- Example slots -->
+  <path d="M900 550 H360 V585 M900 550 V585 M900 550 H1440 V585" class="line"/>
+  <rect x="210" y="585" width="300" height="72" class="mlp"/>
+  <text x="360" y="610" class="label">Intent 1</text><text x="360" y="634" class="small">Booking → boka</text>
+  <rect x="750" y="585" width="300" height="72" class="mlp"/>
+  <text x="900" y="610" class="label">Intent 2</text><text x="900" y="634" class="small">Tjänster → lägga till</text>
+  <rect x="1290" y="585" width="300" height="72" class="mlp"/>
+  <text x="1440" y="610" class="label">Intent 3</text><text x="1440" y="634" class="small">Tjänster → lägga till</text>
+
+  <path d="M360 657 V700 M900 657 V700 M1440 657 V700" class="line"/>
+  <rect x="210" y="700" width="300" height="72" class="created"/>
+  <text x="360" y="725" class="label">BOOK_001 skapas</text><text x="360" y="749" class="small">day, time, staff</text>
+  <rect x="750" y="700" width="300" height="72" class="created"/>
+  <text x="900" y="725" class="label">SVC_001 skapas</text><text x="900" y="749" class="small">service: fade</text>
+  <rect x="1290" y="700" width="300" height="72" class="created"/>
+  <text x="1440" y="725" class="label">SVC_002 skapas</text><text x="1440" y="749" class="small">service: skäggtrimning</text>
+
+  <path d="M360 772 V812 H900 M900 772 V812 M1440 772 V812 H900" class="line"/>
+  <rect x="620" y="812" width="560" height="70" class="check"/>
+  <text x="900" y="837" class="label">7. Uppdatera sessionsläget</text>
+  <text x="900" y="860" class="small">active_booking: BOOK_001 · active_services: SVC_001, SVC_002</text>
+  <path d="M900 882 V923" class="line"/>
+  <rect x="620" y="923" width="560" height="70" class="note"/>
+  <text x="900" y="948" class="label">8. Validera och gå till nästa block</text>
+  <text x="900" y="971" class="small">Kontrollera poolregler, dubbletter, targets och state-regler.</text>
+
+  <rect x="180" y="1060" width="1440" height="80" class="note"/>
+  <text x="900" y="1088" class="label">Samma kedja gäller för alla block, men deras regler skiljer sig</text>
+  <text x="900" y="1115" class="small">P2, P3 och D3 skapar ID:n. P4, D2 och D5 väljer target_id:n. D1 väljer FAQ-pool. P1 och P5 styr bara öppning eller avslut.</text>
+</svg>

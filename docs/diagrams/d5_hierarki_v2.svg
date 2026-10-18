@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1210" viewBox="0 0 1800 1210">
+  <style>
+    .title { font: 700 30px 'Segoe UI', sans-serif; fill: #172033; }
+    .subtitle { font: 400 17px 'Segoe UI', sans-serif; fill: #516075; }
+    .label { font: 700 16px 'Segoe UI', sans-serif; fill: #172033; text-anchor: middle; dominant-baseline: middle; }
+    .small { font: 400 14px 'Segoe UI', sans-serif; fill: #334155; text-anchor: middle; dominant-baseline: middle; }
+    .tiny { font: 400 13px 'Segoe UI', sans-serif; fill: #475569; text-anchor: middle; dominant-baseline: middle; }
+    .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; rx: 12; }
+    .state { fill: #eaf2ff; stroke: #3974bc; stroke-width: 2.5; rx: 12; }
+    .count { fill: #fff5dc; stroke: #d69e2e; stroke-width: 2.5; rx: 12; }
+    .mlp { fill: #f4efff; stroke: #805ad5; stroke-width: 2.5; rx: 12; }
+    .target { fill: #e8f8ef; stroke: #2f855a; stroke-width: 2.5; rx: 12; }
+    .effect { fill: #ffffff; stroke: #38a169; stroke-width: 2; rx: 22; }
+    .note { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 12; }
+    .line { fill: none; stroke: #64748b; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .dash { fill: none; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 7 6; }
+  </style>
+  <rect width="1800" height="1210" fill="#f8fafc"/>
+  <text x="70" y="62" class="title">D5: flera korrigeringar-hierarki</text>
+  <text x="70" y="92" class="subtitle">D5 korrigerar information som hör till minst två olika tidigare intents. Varje berört intent kan få flera fält ändrade samtidigt.</text>
+
+  <rect x="810" y="125" width="180" height="58" class="box"/>
+  <text x="900" y="154" class="label">D5</text>
+  <path d="M900 183 V230" class="line"/>
+  <rect x="790" y="230" width="220" height="58" class="state"/>
+  <text x="900" y="259" class="label">state: D5</text>
+  <path d="M900 288 V332" class="line"/>
+  <rect x="710" y="332" width="380" height="62" class="count"/>
+  <text x="900" y="356" class="label">intents: 2 eller fler</text>
+  <text x="900" y="378" class="small">Varje intent har ett eget target_id.</text>
+  <path d="M900 394 V440" class="line"/>
+  <rect x="675" y="440" width="450" height="64" class="note"/>
+  <text x="900" y="464" class="label">Korrigeringsslot</text>
+  <text x="900" y="486" class="small">Upprepas för varje berört tidigare intent.</text>
+  <path d="M900 504 V547" class="line"/>
+
+  <path d="M900 547 H370 V582 M900 547 V582 M900 547 H1430 V582" class="line"/>
+  <rect x="245" y="582" width="250" height="60" class="mlp"/><text x="370" y="612" class="label">MLP1: Booking</text>
+  <rect x="775" y="582" width="250" height="60" class="mlp"/><text x="900" y="612" class="label">MLP1: Tjänster</text>
+  <rect x="1305" y="582" width="250" height="60" class="mlp"/><text x="1430" y="612" class="label">MLP1: Auth</text>
+
+  <path d="M370 642 V674 H265 V702 M370 674 H475 V702" class="line"/>
+  <rect x="165" y="702" width="200" height="58" class="mlp"/><text x="265" y="731" class="label">MLP2: ändra</text>
+  <rect x="375" y="702" width="200" height="58" class="mlp"/><text x="475" y="731" class="label">MLP2: omboka</text>
+  <path d="M265 760 V792 H370 V822 M475 760 V792 H370" class="line"/>
+  <rect x="250" y="822" width="240" height="60" class="target"/>
+  <text x="370" y="845" class="label">target_id: BOOK_001</text><text x="370" y="867" class="tiny">från active_booking</text>
+  <path d="M265 882 V910 M475 882 V910" class="dash"/>
+  <rect x="165" y="910" width="200" height="48" class="effect"/><text x="265" y="926" class="tiny">valfritt bokningsfält</text><text x="265" y="943" class="tiny">ändras</text>
+  <rect x="375" y="910" width="200" height="48" class="effect"/><text x="475" y="926" class="tiny">day, time och/eller</text><text x="475" y="943" class="tiny">staff ändras</text>
+
+  <path d="M900 642 V702" class="line"/>
+  <rect x="800" y="702" width="200" height="58" class="mlp"/><text x="900" y="731" class="label">MLP2: byta ut</text>
+  <path d="M900 760 V822" class="line"/>
+  <rect x="780" y="822" width="240" height="60" class="target"/>
+  <text x="900" y="845" class="label">target_id: SVC_00X</text><text x="900" y="867" class="tiny">från active_services</text>
+  <path d="M900 882 V910" class="dash"/>
+  <rect x="800" y="910" width="200" height="48" class="effect"/><text x="900" y="926" class="tiny">service-fältet ändras</text><text x="900" y="943" class="tiny">till en unik tjänst</text>
+
+  <path d="M1430 642 V702" class="line"/>
+  <rect x="1330" y="702" width="200" height="58" class="mlp"/><text x="1430" y="731" class="label">MLP2: ändra</text>
+  <path d="M1430 760 V822" class="line"/>
+  <rect x="1310" y="822" width="240" height="60" class="target"/>
+  <text x="1430" y="845" class="label">target_id: AUTH_001</text><text x="1430" y="867" class="tiny">från active_auth</text>
+  <path d="M1430 882 V910" class="dash"/>
+  <rect x="1330" y="910" width="200" height="48" class="effect"/><text x="1430" y="926" class="tiny">name och/eller phone</text><text x="1430" y="943" class="tiny">ändras</text>
+
+  <rect x="160" y="1040" width="1480" height="100" class="note"/>
+  <text x="900" y="1068" class="label">D5-regler</text>
+  <text x="900" y="1095" class="small">Varje korrigeringsslot måste välja ett target_id som inte redan används i samma D5. D5 kräver minst två olika target_id:n.</text>
+  <text x="900" y="1121" class="small">Samma target får ha flera fält ändrade, men ett andra target krävs för att D5 ska vara giltig.</text>
+</svg>

@@ -1,0 +1,188 @@
+{
+  "schema_version": "3.2.0",
+  "generator_stage": "stage1_raw_cartesian",
+  "description": "Råa P- och D-strukturer för steg 1 innan filtrering eller deduplicering.",
+  "source_docs": [
+    "docs/Rev A.md",
+    "docs/training_data_architecture_v4_sv.md",
+    "docs/ej klart.md",
+    "docs/descriptive_template_format_v1.md"
+  ],
+  "logic_filter_applied": false,
+  "max_unique_template_space": 22608,
+  "template_shape": {
+    "fixed_keys": [
+      "p1",
+      "p2",
+      "p3",
+      "p4",
+      "p5",
+      "d_1",
+      "d_2"
+    ]
+  },
+  "p_space": {
+    "counting_mode": "pure_cartesian",
+    "expected_count": 144,
+    "categories": {
+      "p1": [
+        {
+          "state_id": "P1.1",
+          "template_value": "ai_oppnar_utan_direkt_intent",
+          "description": "AI öppnar, kunden ger inte intent direkt."
+        },
+        {
+          "state_id": "P1.3",
+          "template_value": "kund_oppnar_enkelt",
+          "description": "Kunden öppnar enkelt, utan intent."
+        }
+      ],
+      "p2": [
+        {
+          "state_id": "P2.1",
+          "template_value": "enskilt_arende",
+          "description": "Enskilt ärende.",
+          "intent_count_hint": "single"
+        },
+        {
+          "state_id": "P2.2",
+          "template_value": "flera_arenden_direkt",
+          "description": "Flera ärenden uttrycks direkt.",
+          "intent_count_hint": "multiple"
+        },
+        {
+          "state_id": "P2.3",
+          "template_value": "nytt_arende_i_p2",
+          "description": "Nytt ärende introduceras under P2.",
+          "intent_count_hint": "multiple"
+        },
+        {
+          "state_id": "P2.4",
+          "template_value": "ai_initierar_utokning",
+          "description": "AI initierar utökning av ärendet.",
+          "intent_count_hint": "multiple"
+        }
+      ],
+      "p3": [
+        {
+          "state_id": "P3.1",
+          "template_value": "kontaktinfo_utan_problem",
+          "description": "Kunden ger all kontaktinformation utan problem."
+        },
+        {
+          "state_id": "P3.2",
+          "template_value": "kontaktinfo_delvis",
+          "description": "Kunden ger bara del av kontaktinformationen."
+        },
+        {
+          "state_id": "P3.3",
+          "template_value": "kontaktinfo_oklar",
+          "description": "Kunden är oklar eller tveksam kring kontaktinformationen."
+        }
+      ],
+      "p4": [
+        {
+          "state_id": "P4.1",
+          "template_value": "ingen_korrigering",
+          "description": "Ingen korrigering."
+        },
+        {
+          "state_id": "P4.2",
+          "template_value": "en_parameter_fel",
+          "description": "En parameter är fel."
+        },
+        {
+          "state_id": "P4.3",
+          "template_value": "flera_parametrar_fel",
+          "description": "Flera parametrar är fel eller flera korrigeringsvarv uppstår."
+        }
+      ],
+      "p5": [
+        {
+          "state_id": "P5.1",
+          "template_value": "standardavslut",
+          "description": "Standardavslut."
+        },
+        {
+          "state_id": "P5.2",
+          "template_value": "kundinitierat_avslut",
+          "description": "Kundinitierat avslut."
+        }
+      ]
+    }
+  },
+  "d_space": {
+    "counting_mode": "raw_slot_product_before_filter",
+    "slot_keys": [
+      "d_1",
+      "d_2"
+    ],
+    "empty_value": "tom",
+    "empty_description": "Ingen avvikelse.",
+    "active_types": [
+      {
+        "type_id": "D1",
+        "template_value_base": "informationsfraga",
+        "description": "Informationsfråga",
+        "allowed_phases": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5"
+        ]
+      },
+      {
+        "type_id": "D2",
+        "template_value_base": "enskild_korrigering",
+        "description": "Enskild korrigering",
+        "allowed_phases": [
+          "P3",
+          "P5"
+        ]
+      },
+      {
+        "type_id": "D3",
+        "template_value_base": "tillagg",
+        "description": "Tillägg",
+        "allowed_phases": [
+          "P3",
+          "P4",
+          "P5"
+        ]
+      },
+      {
+        "type_id": "D5",
+        "template_value_base": "flera_korrigeringar",
+        "description": "Flera korrigeringar",
+        "allowed_phases": [
+          "P3",
+          "P5"
+        ]
+      }
+    ],
+    "max_deviations_per_template": 2,
+    "order_counts_as_unique": true,
+    "expected_count": 157,
+    "generation_rules": {
+      "zero_deviation": {
+        "expected_count": 1
+      },
+      "one_deviation": {
+        "expected_atomic_options": 12,
+        "expected_count": 12,
+        "slot_pattern": "d_1_active_d_2_empty"
+      },
+      "two_deviations": {
+        "pair_generation": "ordered_product",
+        "expected_count": 144
+      }
+    }
+  },
+  "stage1_notes": {
+    "p2_counting_rule": "P2 räknas som 4 strukturella states.",
+    "later_filtering": "Ett separat filtersteg ska senare dela upp råmallarna i giltiga och ogiltiga.",
+    "raw_d_rule": "Steg 1 behåller rå slot-ordning för D. D_1 och D_2 behandlas som ordnade slots innan deduplicering.",
+    "raw_formula": "P-rymden är 2 x 4 x 3 x 3 x 2 = 144. D-rymden är 1 + 12 + (12 x 12) = 157. Total rå steg-1-rymd är 144 x 157 = 22608."
+  }
+}
